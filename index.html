@@ -173,6 +173,9 @@
             font-size: 1.5em;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
+            user-select: none; /* Prevent text selection */
+            -webkit-user-select: none; /* For Safari */
+            -ms-user-select: none; /* For Internet Explorer/Edge */
         }
 
         .dark-mode-toggle:hover {
