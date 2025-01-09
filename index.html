@@ -87,6 +87,9 @@
             box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2), 0 0 10px rgba(255, 255, 255, 0.2);
             transition: background 0.3s, box-shadow 0.3s;
             margin-bottom: 20px;
+            user-select: none; /* Prevent text selection */
+            -webkit-user-select: none; /* For Safari */
+            -ms-user-select: none; /* For Internet Explorer/Edge */
         }
 
         #inputbox:focus {
