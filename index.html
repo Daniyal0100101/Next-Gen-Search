@@ -275,7 +275,7 @@
     <!-- Footer -->
     <footer>
         Powered by
-        <a href="https://openai.com" target="_blank">OpenAI</a>,
+        <a href="https://chatgpt.com" target="_blank">ChatGPT</a>,
         <a href="https://www.perplexity.ai" target="_blank">Perplexity AI</a>,
         and <a href="https://www.google.com" target="_blank">Google</a>
     </footer>
@@ -323,13 +323,15 @@
 
         // Dark Mode Toggle
         darkModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark');
-            const isDarkMode = document.body.classList.contains('dark');
-            document.body.style.background = isDarkMode
-                ? 'linear-gradient(135deg, #121212, #1a1a1a)'
-                : 'linear-gradient(135deg, #1e293b, #0f172a)';
-            darkModeToggle.textContent = isDarkMode ? '☀️' : '🌙';
-        });
+        document.body.classList.toggle('dark');
+        const isDarkMode = document.body.classList.contains('dark');
+    
+        document.body.style.background = isDarkMode
+            ? 'linear-gradient(135deg, #000000, #1a1a1a)' // Black theme for night (moon)
+            : 'linear-gradient(135deg, #0d47a1, #1976d2)'; // Blue theme for day (sun)
+    
+        darkModeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+    });
     </script>
 </body>
 
