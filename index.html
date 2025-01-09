@@ -302,6 +302,7 @@
                 const selectedEngine = engines[slider.value];
                 window.open(`${selectedEngine.url}${encodeURIComponent(query)}`, '_blank');
             }
+            // Do nothing if query is empty
         }
 
         // Search button click event
