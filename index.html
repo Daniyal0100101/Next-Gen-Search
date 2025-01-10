@@ -327,8 +327,8 @@
         const isDarkMode = document.body.classList.contains('dark');
     
         document.body.style.background = isDarkMode
-            ? 'linear-gradient(135deg, #000000, #1a1a1a)' // Black theme for night (moon)
-            : 'linear-gradient(135deg, #0d47a1, #1976d2)'; // Blue theme for day (sun)
+            ? 'linear-gradient(135deg, #121212, #1a1a1a)' // Original dark theme (black/gray gradient)
+            : 'linear-gradient(135deg, #1e293b, #0f172a)'; // Original light theme (blue/gray gradient)
     
         darkModeToggle.textContent = isDarkMode ? '☀️' : '🌙';
     });
