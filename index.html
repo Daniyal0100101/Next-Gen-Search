@@ -90,6 +90,7 @@
             user-select: none; /* Prevent text selection */
             -webkit-user-select: none; /* For Safari */
             -ms-user-select: none; /* For Internet Explorer/Edge */
+            min-width: 280px; /* Prevent layout issues on small screens */
         }
 
         #inputbox:focus {
@@ -297,7 +298,8 @@
 
         // Update tooltip based on slider input
         slider.addEventListener('input', () => {
-            const selectedEngine = engines[slider.value];
+            const index = Math.min(Math.max(slider.value, 0), engines.length - 1); // Ensure within bounds
+            const selectedEngine = engines[index];
             tooltip.textContent = selectedEngine.name;
         });
 
@@ -305,7 +307,8 @@
         function performSearch() {
             const query = inputBox.value.trim();
             if (query) {
-                const selectedEngine = engines[slider.value];
+                const index = Math.min(Math.max(slider.value, 0), engines.length - 1); // Ensure within bounds
+                const selectedEngine = engines[index];
                 window.open(`${selectedEngine.url}${encodeURIComponent(query)}`, '_blank');
             }
             // Do nothing if query is empty
@@ -323,15 +326,23 @@
 
         // Dark Mode Toggle
         darkModeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark');
-        const isDarkMode = document.body.classList.contains('dark');
+            document.body.classList.toggle('dark');
+            const isDarkMode = document.body.classList.contains('dark');
+            localStorage.setItem('darkMode', isDarkMode); // Store preference in localStorage
     
-        document.body.style.background = isDarkMode
-            ? 'linear-gradient(135deg, #1f1f1f, #1a1a1a)' // Black theme for night (moon)
-            : 'linear-gradient(135deg, #15386e, #1976d2)'; // Blue theme for day (sun)
+            document.body.style.background = isDarkMode
+                ? 'linear-gradient(135deg, #1f1f1f, #1a1a1a)' // Black theme for night (moon)
+                : 'linear-gradient(135deg, #15386e, #1976d2)'; // Blue theme for day (sun)
     
-        darkModeToggle.textContent = isDarkMode ? '☀️' : '🌙';
-    });
+            darkModeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+        });
+
+        // Apply stored dark mode preference on load
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark');
+            document.body.style.background = 'linear-gradient(135deg, #1f1f1f, #1a1a1a)';
+            darkModeToggle.textContent = '☀️';
+        }
     </script>
 </body>
 
