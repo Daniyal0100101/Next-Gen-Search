@@ -268,7 +268,7 @@
     <div class="logo">Next-Gen Search</div>
 
     <!-- Dark Mode Toggle -->
-    <div class="dark-mode-toggle" id="darkModeToggle">ðŸŒ™</div>
+    <div class="dark-mode-toggle" id="darkModeToggle">🌙</div>
 
     <!-- Search Input and Slider -->
     <div class="search-container">
@@ -345,14 +345,14 @@
                 ? 'linear-gradient(135deg, #1f1f1f, #1a1a1a)' // Black theme for night (moon)
                 : 'linear-gradient(135deg, #15386e, #1976d2)'; // Blue theme for day (sun)
 
-            darkModeToggle.textContent = isDarkMode ? 'â˜€ï¸' : 'ðŸŒ™';
+            darkModeToggle.textContent = isDarkMode ? '☀️' : '🌙';
         });
 
         // Apply stored dark mode preference on load
         if (localStorage.getItem('darkMode') === 'true') {
             document.body.classList.add('dark');
             document.body.style.background = 'linear-gradient(135deg, #1f1f1f, #1a1a1a)';
-            darkModeToggle.textContent = 'â˜€ï¸';
+            darkModeToggle.textContent = '☀️';
         }
     </script>
 </body>
