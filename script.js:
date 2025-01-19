@@ -1,0 +1,52 @@
+const slider = document.getElementById('searchSlider');
+const tooltip = document.getElementById('tooltip');
+const searchBtn = document.getElementById('searchBtn');
+const inputBox = document.getElementById('inputbox');
+const darkModeToggle = document.getElementById('darkModeToggle');
+
+const engines = [
+    { name: 'ChatGPT', url: 'https://chat.openai.com/search?q=' },
+    { name: 'Perplexity AI', url: 'https://www.perplexity.ai/search?q=' },
+    { name: 'Google', url: 'https://www.google.com/search?q=' }
+];
+
+slider.addEventListener('input', () => {
+    const index = Math.min(Math.max(slider.value, 0), engines.length - 1);
+    const selectedEngine = engines[index];
+    tooltip.textContent = selectedEngine.name;
+});
+
+function performSearch() {
+    const query = inputBox.value.trim();
+    if (query) {
+        const index = Math.min(Math.max(slider.value, 0), engines.length - 1);
+        const selectedEngine = engines[index];
+        window.open(`${selectedEngine.url}${encodeURIComponent(query)}`, '_blank');
+    }
+}
+
+searchBtn.addEventListener('click', performSearch);
+
+inputBox.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+        performSearch();
+    }
+});
+
+darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDarkMode = document.body.classList.contains('dark');
+    localStorage.setItem('darkMode', isDarkMode);
+    
+    document.body.style.background = isDarkMode
+        ? 'linear-gradient(135deg, #1f1f1f, #1a1a1a)'
+        : 'linear-gradient(135deg, #15386e, #1976d2)';
+    
+    darkModeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+});
+
+if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark');
+    document.body.style.background = 'linear-gradient(135deg, #1f1f1f, #1a1a1a)';
+    darkModeToggle.textContent = '☀️';
+}
