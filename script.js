@@ -99,6 +99,13 @@ if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
     isListening = false;
   };
 
+  recognition.onend = () => {
+    console.log("Speech recognition ended automatically.");
+    micIcon.classList.remove("active");
+    inputBox.placeholder = PLACEHOLDER_DEFAULT;  // "Type your query here..." 
+    isListening = false;
+  };
+  
   micIcon.addEventListener("click", () => {
     if (!isListening) {
       // Start listening
