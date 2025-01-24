@@ -209,7 +209,6 @@ main {
 
 .slider::-webkit-slider-thumb:hover {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-    user-select: none;
 }
 
 #searchBtn {
