@@ -1,4 +1,4 @@
-/* Basic Reset */
+/* Basic reset */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,6 +8,8 @@
 html,
 body {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -19,25 +21,13 @@ body {
   transition: background 0.5s, color 0.5s;
 }
 
+/* Dark mode (toggle with .dark class on body) */
 body.dark {
   background: linear-gradient(135deg, #1f1f1f, #1a1a1a);
   color: #fff;
 }
 
-/* CSS Variables for Consistency */
-:root {
-  --primary-color: #4caf50;
-  --secondary-color: #2563eb;
-  --tertiary-color: #e11d48;
-  --text-light: #fff;
-  --text-dark: #94a3b8;
-  --background-light: rgba(255, 255, 255, 0.05);
-  --tooltip-bg: rgba(0, 0, 0, 0.7);
-  --tooltip-text: #fff;
-  --border-radius: 12px;
-}
-
-/* Main Content Wrapper */
+/* Main content wrapper to push footer down */
 main {
   flex: 1;
   display: flex;
@@ -47,13 +37,12 @@ main {
   padding: 20px;
 }
 
-/* Logo with Animation */
 .logo {
   font-size: 2.5em;
   font-weight: bold;
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
     0 0 15px rgba(72, 157, 241, 0.5);
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(90deg, #4caf50, #2563eb);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -64,17 +53,19 @@ main {
 }
 
 @keyframes glow {
-  0%, 100% {
+
+  0%,
+  100% {
     text-shadow: 0 0 5px rgba(72, 157, 241, 0.5),
       0 0 10px rgba(76, 175, 80, 0.7);
   }
+
   50% {
     text-shadow: 0 0 15px rgba(72, 157, 241, 0.8),
       0 0 20px rgba(76, 175, 80, 1);
   }
 }
 
-/* Search Container */
 .search-container {
   width: 100%;
   max-width: 600px;
@@ -82,10 +73,10 @@ main {
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  background: var(--background-light);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--border-radius);
+  border-radius: 12px;
   padding: 20px;
 }
 
@@ -98,12 +89,13 @@ main {
 #inputbox {
   width: 100%;
   padding: 15px 20px;
+  padding-right: 55px;
   font-size: 18px;
   border: none;
   border-radius: 50px;
   outline: none;
   background: rgba(255, 255, 255, 0.1);
-  color: var(--text-light);
+  color: white;
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2),
     0 0 10px rgba(255, 255, 255, 0.2);
   transition: background 0.3s, box-shadow 0.3s;
@@ -128,8 +120,10 @@ main {
   justify-content: center;
   cursor: pointer;
   transition: background 0.3s, box-shadow 0.3s;
-  color: var(--text-light);
+  color: white;
   font-size: 18px;
+  z-index: 10;
+  user-select: none;
 }
 
 .mic-icon:hover {
@@ -147,15 +141,16 @@ main {
   0% {
     box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
   }
+
   70% {
     box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
   }
 }
 
-/* Slider Section */
 .slider-container {
   display: flex;
   align-items: center;
@@ -169,19 +164,18 @@ main {
 
 .tooltip {
   position: absolute;
-  top: -40px;
+  top: -35px;
   font-size: 0.9em;
-  color: var(--tooltip-text);
-  background: var(--tooltip-bg);
-  padding: 6px 12px;
-  border-radius: 6px;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+  border-radius: 5px;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s;
+  transition: visibility 0.2s, opacity 0.2s;
 }
 
-.slider-container:hover .tooltip,
-.slider:focus + .tooltip {
+.slider-container:hover .tooltip {
   visibility: visible;
   opacity: 1;
 }
@@ -190,31 +184,124 @@ main {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 12px;
-  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color), var(--tertiary-color));
-  border-radius: 6px;
+  height: 10px;
+  background: linear-gradient(90deg,
+      #2563eb,
+      #4caf50,
+      #e11d48);
+  border-radius: 10px;
   outline: none;
+  transition: opacity 0.2s, background 0.3s;
   cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.slider:focus {
-  outline: 2px solid var(--primary-color);
 }
 
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 24px;
-  height: 24px;
-  background: var(--text-light);
+  width: 20px;
+  height: 20px;
+  background: white;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s;
 }
 
 .slider::-webkit-slider-thumb:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+#searchBtn {
+  padding: 12px 30px;
+  font-size: 18px;
+  color: white;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#searchBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
+}
+
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  user-select: none;
+}
+
+.dark-mode-toggle:hover {
+  transform: rotate(20deg);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.9em;
+  color: #94a3b8;
+  margin: 20px 0;
+}
+
+footer a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 2em;
+  }
+
+  #inputbox {
+    font-size: 16px;
+    padding: 12px 50px 12px 15px;
+  }
+
+  #searchBtn {
+    font-size: 16px;
+    padding: 10px 25px;
+  }
+
+  .tooltip {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.8em;
+  }
+
+  #inputbox {
+    font-size: 14px;
+    padding: 10px 50px 10px 12px;
+  }
+
+  .mic-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+
+  #searchBtn {
+    font-size: 14px;
+    padding: 8px 20px;
+  }
+
+  .tooltip {
+    font-size: 0.7em;
+  }
 }
