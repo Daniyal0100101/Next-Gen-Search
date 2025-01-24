@@ -1,7 +1,7 @@
 // --------------------------------
 // CONFIGURABLE STRINGS
 // --------------------------------
-const PLACEHOLDER_DEFAULT = "Type your query here...";
+const PLACEHOLDER_DEFAULT = "Search here...";
 const PLACEHOLDER_LISTENING = "Listening...";
 const ERROR_MESSAGE = "Speech recognition error:";
 
