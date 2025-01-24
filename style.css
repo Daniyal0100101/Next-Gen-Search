@@ -1,307 +1,372 @@
 /* Basic reset */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html,
 body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  font-family: 'Poppins', Arial, sans-serif;
-  background: linear-gradient(135deg, #1e293b, #0f172a);
-  color: white;
-  transition: background 0.5s, color 0.5s;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: white;
+    transition: background 0.5s, color 0.5s;
 }
 
 /* Dark mode (toggle with .dark class on body) */
 body.dark {
-  background: linear-gradient(135deg, #1f1f1f, #1a1a1a);
-  color: #fff;
+    background: linear-gradient(135deg, #1f1f1f, #1a1a1a);
+    color: #fff;
 }
 
-/* Main content wrapper to push footer down */
+/* Main content wrapper */
 main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
 .logo {
-  font-size: 2.5em;
-  font-weight: bold;
-  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
-    0 0 15px rgba(72, 157, 241, 0.5);
-  background: linear-gradient(90deg, #4caf50, #2563eb);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-align: center;
-  animation: glow 2s infinite;
-  user-select: none;
-  margin-bottom: 25px;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.3),
+        0 0 15px rgba(72, 157, 241, 0.5);
+    background: linear-gradient(90deg, #4caf50, #2563eb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    animation: glow 2s infinite;
+    user-select: none;
+    margin-bottom: 25px;
 }
 
 @keyframes glow {
 
-  0%,
-  100% {
-    text-shadow: 0 0 5px rgba(72, 157, 241, 0.5),
-      0 0 10px rgba(76, 175, 80, 0.7);
-  }
+    0%,
+    100% {
+        text-shadow:
+            0 0 5px rgba(72, 157, 241, 0.5),
+            0 0 10px rgba(76, 175, 80, 0.7);
+    }
 
-  50% {
-    text-shadow: 0 0 15px rgba(72, 157, 241, 0.8),
-      0 0 20px rgba(76, 175, 80, 1);
-  }
+    50% {
+        text-shadow:
+            0 0 15px rgba(72, 157, 241, 0.8),
+            0 0 20px rgba(76, 175, 80, 1);
+    }
 }
 
 .search-container {
-  width: 100%;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 20px;
 }
 
 .input-wrapper {
-  position: relative;
-  width: 100%;
-  margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 #inputbox {
-  width: 100%;
-  padding: 15px 20px;
-  padding-right: 55px;
-  font-size: 18px;
-  border: none;
-  border-radius: 50px;
-  outline: none;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2),
-    0 0 10px rgba(255, 255, 255, 0.2);
-  transition: background 0.3s, box-shadow 0.3s;
+    width: 100%;
+    padding: 15px 20px;
+    padding-right: 55px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.2),
+        0 0 10px rgba(255, 255, 255, 0.2);
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
 #inputbox:focus {
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
+/* ========== MICROPHONE ICON (PURE CSS) ========== */
 .mic-icon {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  width: 35px;
-  height: 35px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.3s, box-shadow 0.3s;
-  color: white;
-  font-size: 18px;
-  z-index: 10;
-  user-select: none;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+    z-index: 10;
+}
+
+/* Create mic shape with pseudo-elements */
+.mic-icon::before,
+.mic-icon::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+}
+
+/* The mic's top part (capsule) */
+.mic-icon::before {
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 16px;
+    border-radius: 6px 6px 0 0;
+}
+
+/* The mic's stem or handle */
+.mic-icon::after {
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 10px;
+    border-radius: 1px;
 }
 
 .mic-icon:hover {
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
 }
 
+/* Active microphone pulse effect */
 .mic-icon.active {
-  animation: pulse 1.5s infinite;
-  background: rgba(255, 0, 0, 0.3);
-  color: #ff4d4d;
+    animation: mic-pulse 1.5s infinite;
+    background: rgba(255, 0, 0, 0.3);
 }
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
-  }
+@keyframes mic-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+    }
 
-  70% {
-    box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0);
-  }
+    70% {
+        box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0);
+    }
 
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
-  }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
 }
 
+/* Slider container + tooltip */
 .slider-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  max-width: 500px;
-  margin-bottom: 20px;
-  position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+    position: relative;
 }
 
 .tooltip {
-  position: absolute;
-  top: -35px;
-  font-size: 0.9em;
-  color: white;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 5px 10px;
-  border-radius: 5px;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0.2s, opacity 0.2s;
+    position: absolute;
+    top: -35px;
+    font-size: 0.9em;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
 }
 
 .slider-container:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
+    visibility: visible;
+    opacity: 1;
 }
 
 .slider {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 10px;
-  background: linear-gradient(90deg,
-      #2563eb,
-      #4caf50,
-      #e11d48);
-  border-radius: 10px;
-  outline: none;
-  transition: opacity 0.2s, background 0.3s;
-  cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg,
+            #2563eb,
+            #4caf50,
+            #e11d48);
+    border-radius: 10px;
+    outline: none;
+    transition: opacity 0.2s, background 0.3s;
+    cursor: pointer;
 }
 
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  background: white;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.3s;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s;
 }
 
 .slider::-webkit-slider-thumb:hover {
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }
 
+/* Search button */
 #searchBtn {
-  padding: 12px 30px;
-  font-size: 18px;
-  color: white;
-  background-color: #4caf50;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 12px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 #searchBtn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
 }
 
+/* ========== THEME TOGGLE ICON (PURE CSS) ========== */
 .dark-mode-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 1.5em;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-  user-select: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+}
+
+/* The "moon" version: show a circle with a shadow to mimic a crescent */
+.dark-mode-toggle.moon::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #f1c40f;
+    /* bright gold color */
+    border-radius: 50%;
+    box-shadow: inset -8px 0 0 0 #2c3e50;
+    /* partial shadow for moon */
+}
+
+/* The "sun" version: bright circle with a glow or rays */
+.dark-mode-toggle.sun::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #f39c12;
+    /* orange */
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 3px rgba(243, 156, 18, 0.4),
+        0 0 10px 5px rgba(243, 156, 18, 0.3);
 }
 
 .dark-mode-toggle:hover {
-  transform: rotate(20deg);
+    transform: rotate(20deg);
 }
 
 /* Footer */
 footer {
-  text-align: center;
-  font-size: 0.9em;
-  color: #94a3b8;
-  margin: 20px 0;
+    text-align: center;
+    font-size: 0.9em;
+    color: #94a3b8;
+    margin: 20px 0;
 }
 
 footer a {
-  color: #60a5fa;
-  text-decoration: none;
+    color: #60a5fa;
+    text-decoration: none;
 }
 
 footer a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* Media queries */
 @media (max-width: 768px) {
-  .logo {
-    font-size: 2em;
-  }
+    .logo {
+        font-size: 2em;
+    }
 
-  #inputbox {
-    font-size: 16px;
-    padding: 12px 50px 12px 15px;
-  }
+    #inputbox {
+        font-size: 16px;
+        padding: 12px 50px 12px 15px;
+    }
 
-  #searchBtn {
-    font-size: 16px;
-    padding: 10px 25px;
-  }
+    #searchBtn {
+        font-size: 16px;
+        padding: 10px 25px;
+    }
 
-  .tooltip {
-    font-size: 0.8em;
-  }
+    .tooltip {
+        font-size: 0.8em;
+    }
 }
 
 @media (max-width: 480px) {
-  .logo {
-    font-size: 1.8em;
-  }
+    .logo {
+        font-size: 1.8em;
+    }
 
-  #inputbox {
-    font-size: 14px;
-    padding: 10px 50px 10px 12px;
-  }
+    #inputbox {
+        font-size: 14px;
+        padding: 10px 50px 10px 12px;
+    }
 
-  .mic-icon {
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
-  }
+    .mic-icon {
+        width: 30px;
+        height: 30px;
+    }
 
-  #searchBtn {
-    font-size: 14px;
-    padding: 8px 20px;
-  }
+    .mic-icon::before {
+        top: 3px;
+        width: 10px;
+        height: 14px;
+    }
 
-  .tooltip {
-    font-size: 0.7em;
-  }
+    .mic-icon::after {
+        height: 8px;
+    }
+
+    #searchBtn {
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+
+    .tooltip {
+        font-size: 0.7em;
+    }
 }
