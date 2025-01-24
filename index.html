@@ -5,17 +5,20 @@
   <meta charset="UTF-8" />
   <meta name="description"
     content="Next-Gen Search: A multi-engine search tool with dark mode and responsive design." />
-  <meta name="author" content="Your Name" />
+  <meta name="author" content="Daniyal Asif" />
   <meta property="og:title" content="Next-Gen Search" />
   <meta property="og:description" content="A multi-engine search tool with dark mode and responsive design." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://daniyal0100101.github.io/Next-Gen-Search/" />
+  <meta property="og:image" content="https://daniyal0100101.github.io/Next-Gen-Search/preview-image.png" />
+  <link rel="icon" type="image/x-icon" href="favicon-32x32.png" />
   <meta name="keywords" content="Next-Gen Search, multi-engine search, dark mode, responsive design, AI search" />
   <meta name="robots" content="index, follow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Next-Gen Search</title>
 
-  <!-- Optional Google Font -->
+  <!-- Google Font (Optional) -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
 
   <!-- External CSS -->
@@ -23,9 +26,9 @@
 </head>
 
 <body>
-  <!-- THEME TOGGLE ICON: defaults to 'day' -->
-  <div class="theme-toggle day" id="darkModeToggle" role="button" aria-label="Toggle dark mode">
-    <!-- No text; icon is drawn via CSS -->
+  <!-- Dark mode toggle icon -->
+  <div class="dark-mode-toggle moon" id="darkModeToggle" role="button" aria-label="Toggle dark mode">
+    <!-- No text; icon is entirely styled via CSS -->
   </div>
 
   <main>
@@ -34,14 +37,8 @@
     <div class="search-container">
       <div class="input-wrapper">
         <input type="text" id="inputbox" placeholder="Search here..." />
-
-        <!-- VOICE ICON: wave style (bars), done in CSS -->
-        <div class="voice-icon" id="voiceIcon" role="button" aria-label="Start voice recognition">
-          <!-- We’ll place multiple <span> elements for wave bars -->
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+        <div class="mic-icon" id="micIcon" role="button" aria-label="Start voice recognition">
+          <!-- No text; icon is entirely styled via CSS -->
         </div>
       </div>
 
