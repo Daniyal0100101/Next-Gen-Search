@@ -11,7 +11,7 @@ const tooltip = document.getElementById("tooltip");
 const searchBtn = document.getElementById("searchBtn");
 const inputBox = document.getElementById("inputbox");
 const darkModeToggle = document.getElementById("darkModeToggle");
-const micIcon = document.getElementById("micIcon");
+const voiceIcon = document.getElementById("voiceIcon");
 
 // List of search engines
 const engines = [
@@ -20,26 +20,26 @@ const engines = [
     { name: "Google", url: "https://www.google.com/search?q=" },
 ];
 
-// Set the default placeholder once at initialization
+// Set the default placeholder
 inputBox.placeholder = PLACEHOLDER_DEFAULT;
 
-// Initialize tooltip text based on slider value
+// Initialize tooltip text
 function updateTooltip() {
     tooltip.textContent = engines[slider.value].name;
 }
 updateTooltip();
 
-// Update tooltip text whenever the slider moves
+// Update tooltip whenever the slider moves
 slider.addEventListener("input", () => {
     updateTooltip();
 });
 
-// Perform search based on slider selection
+// Perform search
 function performSearch() {
     const query = inputBox.value.trim();
     if (query) {
         const engineIndex = parseInt(slider.value, 10);
-        const searchURL = `${engines[engineIndex].url}${encodeURIComponent(query)}`;
+        const searchURL = engines[engineIndex].url + encodeURIComponent(query);
         window.open(searchURL, "_blank");
     }
 }
@@ -54,31 +54,38 @@ inputBox.addEventListener("keyup", (event) => {
     }
 });
 
-// Dark mode toggle
+// ===============================
+// DARK MODE TOGGLE
+// ===============================
 darkModeToggle.addEventListener("click", () => {
+    // Toggle body .dark
     document.body.classList.toggle("dark");
-
     const isDarkMode = document.body.classList.contains("dark");
+
+    // Remember preference
     localStorage.setItem("darkMode", isDarkMode);
 
-    // Toggle classes for the icon: moon <-> sun
+    // Switch theme icon classes: day ↔ night
     if (isDarkMode) {
-        darkModeToggle.classList.remove("moon");
-        darkModeToggle.classList.add("sun");
+        darkModeToggle.classList.remove("day");
+        darkModeToggle.classList.add("night");
     } else {
-        darkModeToggle.classList.remove("sun");
-        darkModeToggle.classList.add("moon");
+        darkModeToggle.classList.remove("night");
+        darkModeToggle.classList.add("day");
     }
 });
 
 // Load stored dark mode preference
 if (localStorage.getItem("darkMode") === "true") {
     document.body.classList.add("dark");
-    darkModeToggle.classList.remove("moon");
-    darkModeToggle.classList.add("sun");
+    // Switch icon to .night
+    darkModeToggle.classList.remove("day");
+    darkModeToggle.classList.add("night");
 }
 
-// Speech-to-text (mic icon)
+// ===============================
+// SPEECH-TO-TEXT (Voice Icon)
+// ===============================
 let recognition;
 let isListening = false;
 
@@ -101,33 +108,34 @@ if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
     recognition.onerror = (event) => {
         console.error(ERROR_MESSAGE, event.error);
         recognition.stop();
-        micIcon.classList.remove("active");
+        voiceIcon.classList.remove("active");
         inputBox.placeholder = PLACEHOLDER_DEFAULT;
         isListening = false;
     };
 
     recognition.onend = () => {
-        console.log("Speech recognition ended automatically.");
-        micIcon.classList.remove("active");
+        console.log("Speech recognition ended.");
+        voiceIcon.classList.remove("active");
         inputBox.placeholder = PLACEHOLDER_DEFAULT;
         isListening = false;
     };
 
-    micIcon.addEventListener("click", () => {
+    // Toggle listening on click
+    voiceIcon.addEventListener("click", () => {
         if (!isListening) {
             recognition.start();
-            micIcon.classList.add("active");
+            voiceIcon.classList.add("active");
             inputBox.placeholder = PLACEHOLDER_LISTENING;
         } else {
             recognition.stop();
-            micIcon.classList.remove("active");
+            voiceIcon.classList.remove("active");
             inputBox.placeholder = PLACEHOLDER_DEFAULT;
         }
         isListening = !isListening;
     });
 } else {
-    // Browser does not support speech recognition
-    micIcon.addEventListener("click", () => {
+    // If browser doesn't support speech
+    voiceIcon.addEventListener("click", () => {
         alert("Your browser does not support speech recognition.");
     });
 }
