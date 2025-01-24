@@ -193,7 +193,6 @@ main {
     outline: none;
     transition: opacity 0.2s, background 0.3s;
     cursor: pointer;
-    user-select: none;
 }
 
 .slider::-webkit-slider-thumb {
@@ -210,6 +209,7 @@ main {
 
 .slider::-webkit-slider-thumb:hover {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    user-select: none;
 }
 
 #searchBtn {
