@@ -74,7 +74,9 @@ Contributions are welcome! Feel free to submit a pull request or open an issue f
 ## License
 
 This project is licensed under the MIT License. You are free to use, modify, and distribute the code as per the license terms.
+
 ---
+
 ### Copyright Notice
 
 © 2025 Daniyal Asif. All rights reserved.
