@@ -276,7 +276,57 @@ main {
     filter: brightness(1.2);
 }
 
-/* Responsive Adjustments */
+/* Search Button */
+#searchBtn {
+    padding: 12px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#searchBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
+}
+
+/* Dark mode toggle */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    user-select: none;
+}
+
+.dark-mode-toggle:hover {
+    transform: rotate(20deg);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 0.9em;
+    color: #94a3b8;
+    margin: 20px 0;
+}
+
+footer a {
+    color: #60a5fa;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Media queries */
 @media (max-width: 768px) {
     .logo {
         font-size: 2em;
