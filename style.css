@@ -21,7 +21,7 @@ body {
     transition: background 0.5s, color 0.5s;
 }
 
-/* Dark mode (toggle with .dark class on body) */
+/* Dark mode (toggle with .dark on body) */
 body.dark {
     background: linear-gradient(135deg, #1f1f1f, #1a1a1a);
     color: #fff;
@@ -37,6 +37,7 @@ main {
     padding: 20px;
 }
 
+/* Logo text styling */
 .logo {
     font-size: 2.5em;
     font-weight: bold;
@@ -69,6 +70,7 @@ main {
     }
 }
 
+/* Search container background */
 .search-container {
     width: 100%;
     max-width: 600px;
@@ -89,10 +91,12 @@ main {
     margin-bottom: 20px;
 }
 
+/* Search Input */
 #inputbox {
     width: 100%;
     padding: 15px 20px;
-    padding-right: 55px;
+    padding-right: 60px;
+    /* extra space for wave icon */
     font-size: 18px;
     border: none;
     border-radius: 50px;
@@ -110,73 +114,53 @@ main {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
-/* ========== MICROPHONE ICON (PURE CSS) ========== */
-.mic-icon {
+/* ========== VOICE ICON: "Wave" Style ========== */
+.voice-icon {
     position: absolute;
     top: 50%;
     right: 15px;
     transform: translateY(-50%);
     width: 35px;
     height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: background 0.3s, box-shadow 0.3s;
-    z-index: 10;
 }
 
-/* Create mic shape with pseudo-elements */
-.mic-icon::before,
-.mic-icon::after {
-    content: "";
-    position: absolute;
-    background: #fff;
-}
-
-/* The mic's top part (capsule) */
-.mic-icon::before {
-    top: 4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 12px;
-    height: 16px;
-    border-radius: 6px 6px 0 0;
-}
-
-/* The mic's stem or handle */
-.mic-icon::after {
-    bottom: 4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
+/* Each <span> is a bar in the wave */
+.voice-icon span {
+    display: block;
+    width: 3px;
     height: 10px;
+    margin: 0 2px;
+    background: #fff;
     border-radius: 1px;
 }
 
-.mic-icon:hover {
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+/* Hover glow */
+.voice-icon:hover {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
 }
 
-/* Active microphone pulse effect */
-.mic-icon.active {
-    animation: mic-pulse 1.5s infinite;
-    background: rgba(255, 0, 0, 0.3);
+/* "Active" state if you'd like a pulsing effect. 
+     For example, let's gently animate heights. */
+.voice-icon.active span {
+    animation: voiceWave 0.8s infinite alternate ease-in-out;
 }
 
-@keyframes mic-pulse {
+/* Optional keyframe: bars changing height in sequence */
+@keyframes voiceWave {
     0% {
-        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
-    }
-
-    70% {
-        box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0);
+        height: 5px;
     }
 
     100% {
-        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+        height: 20px;
     }
 }
 
-/* Slider container + tooltip */
+/* Slider + Tooltip container */
 .slider-container {
     display: flex;
     align-items: center;
@@ -211,10 +195,7 @@ main {
     appearance: none;
     width: 100%;
     height: 10px;
-    background: linear-gradient(90deg,
-            #2563eb,
-            #4caf50,
-            #e11d48);
+    background: linear-gradient(90deg, #2563eb, #4caf50, #e11d48);
     border-radius: 10px;
     outline: none;
     transition: opacity 0.2s, background 0.3s;
@@ -255,50 +236,71 @@ main {
     box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
 }
 
-/* ========== THEME TOGGLE ICON (PURE CSS) ========== */
-.dark-mode-toggle {
+/* ========== THEME TOGGLE ICON ========== */
+.theme-toggle {
     position: fixed;
     top: 20px;
     right: 20px;
     width: 36px;
     height: 36px;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out;
     z-index: 999;
+    transition: transform 0.3s ease-in-out;
 }
 
-/* The "moon" version: show a circle with a shadow to mimic a crescent */
-.dark-mode-toggle.moon::before {
+/* Hover tilt */
+.theme-toggle:hover {
+    transform: rotate(15deg);
+}
+
+/* 
+    We'll have two modes: .day and .night.
+    Each uses a radial or linear gradient 
+    for a modern, minimal circle.
+  */
+
+/* DAY MODE: bright gradient */
+.theme-toggle.day::before {
     content: "";
     display: block;
     width: 100%;
     height: 100%;
-    background: #f1c40f;
-    /* bright gold color */
     border-radius: 50%;
-    box-shadow: inset -8px 0 0 0 #2c3e50;
-    /* partial shadow for moon */
+    background: radial-gradient(circle at 30% 30%,
+            #ffea00,
+            #ffc107 60%,
+            #ff9800 100%);
 }
 
-/* The "sun" version: bright circle with a glow or rays */
-.dark-mode-toggle.sun::before {
+/* NIGHT MODE: darker gradient, 
+     plus an inner circle “planet” for style */
+.theme-toggle.night::before {
     content: "";
     display: block;
+    position: relative;
     width: 100%;
     height: 100%;
-    background: #f39c12;
-    /* orange */
     border-radius: 50%;
-    box-shadow:
-        0 0 0 3px rgba(243, 156, 18, 0.4),
-        0 0 10px 5px rgba(243, 156, 18, 0.3);
+    background: radial-gradient(circle at 70% 70%,
+            #2c3e50,
+            #34495e 60%,
+            #1a1a1a 100%);
 }
 
-.dark-mode-toggle:hover {
-    transform: rotate(20deg);
+/* Extra accent: a small circle “planet” or “moon” in .night mode */
+.theme-toggle.night::after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    opacity: 0.8;
 }
 
-/* Footer */
+/* Footer styling */
 footer {
     text-align: center;
     font-size: 0.9em;
@@ -323,7 +325,7 @@ footer a:hover {
 
     #inputbox {
         font-size: 16px;
-        padding: 12px 50px 12px 15px;
+        padding: 12px 60px 12px 15px;
     }
 
     #searchBtn {
@@ -343,22 +345,12 @@ footer a:hover {
 
     #inputbox {
         font-size: 14px;
-        padding: 10px 50px 10px 12px;
+        padding: 10px 60px 10px 12px;
     }
 
-    .mic-icon {
+    .voice-icon {
         width: 30px;
         height: 30px;
-    }
-
-    .mic-icon::before {
-        top: 3px;
-        width: 10px;
-        height: 14px;
-    }
-
-    .mic-icon::after {
-        height: 8px;
     }
 
     #searchBtn {
