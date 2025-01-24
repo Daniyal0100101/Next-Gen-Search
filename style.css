@@ -160,7 +160,6 @@ main {
     max-width: 500px;
     margin-bottom: 20px;
     position: relative;
-    user-select: none;
 }
 
 .tooltip {
@@ -206,6 +205,7 @@ main {
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.3s;
+    user-select: none;
 }
 
 .slider::-webkit-slider-thumb:hover {
