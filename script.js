@@ -153,6 +153,14 @@ if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
             isListening = false;
         }
     });
+
+    // Allow keyboard interaction for mic icon
+    micIcon.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            micIcon.click();
+        }
+    });
 } else {
     // Browser does not support speech recognition
     micIcon.addEventListener("click", () => {
