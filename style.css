@@ -5,8 +5,7 @@
   padding: 0;
 }
 
-html,
-body {
+html, body {
   height: 100%;
   overflow-x: hidden;
 }
@@ -26,18 +25,18 @@ body.dark {
   color: #fff;
 }
 
-/* CSS Variables for Consistency */
+/* CSS Variables for Reusability */
 :root {
   --primary-color: #4caf50;
   --secondary-color: #2563eb;
   --tertiary-color: #e11d48;
-  --text-light: #fff;
-  --background-light: rgba(255, 255, 255, 0.05);
-  --tooltip-bg: rgba(0, 0, 0, 0.7);
   --slider-thumb-size: 20px;
+  --tooltip-bg: rgba(0, 0, 0, 0.8);
+  --tooltip-color: white;
+  --slider-bg: linear-gradient(90deg, var(--secondary-color), var(--primary-color), var(--tertiary-color));
 }
 
-/* Main Content Wrapper */
+/* Main Content Styling */
 main {
   flex: 1;
   display: flex;
@@ -61,31 +60,28 @@ main {
   margin-bottom: 25px;
 }
 
-/* Slider Section */
+/* Slider Styling */
 .slider-container {
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
   width: 100%;
   max-width: 500px;
-  margin-bottom: 20px;
-  position: relative;
-  user-select: none; /* Disable slider selection */
-  pointer-events: auto; /* Ensure slider remains usable */
+  user-select: none;
 }
 
 .tooltip {
   position: absolute;
   top: -40px;
   font-size: 0.9em;
-  color: var(--text-light);
+  color: var(--tooltip-color);
   background: var(--tooltip-bg);
   padding: 6px 12px;
   border-radius: 6px;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s;
+  transition: visibility 0.3s ease, opacity 0.3s ease;
 }
 
 .slider-container:hover .tooltip,
@@ -99,19 +95,19 @@ main {
   appearance: none;
   width: 100%;
   height: 10px;
-  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color), var(--tertiary-color));
-  border-radius: 6px;
+  background: var(--slider-bg);
+  border-radius: 10px;
   outline: none;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s;
+  transition: background 0.3s ease;
 }
 
 .slider:hover {
-  transform: scale(1.02); /* Slight enlargement on hover */
+  background: linear-gradient(90deg, #6baed6, #76c581, #f28486);
 }
 
 .slider:focus {
-  outline: none;
+  outline: 2px solid var(--primary-color);
 }
 
 .slider::-webkit-slider-thumb {
@@ -119,35 +115,25 @@ main {
   appearance: none;
   width: var(--slider-thumb-size);
   height: var(--slider-thumb-size);
-  background: var(--text-light);
+  background: white;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .slider::-webkit-slider-thumb:hover {
-  transform: scale(1.2); /* Enlarged thumb on hover */
+  transform: scale(1.2);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-}
-
-/* For Mobile: Increase Hit Area */
-.slider::-webkit-slider-thumb:active {
-  transform: scale(1.4);
 }
 
 .slider::-moz-range-thumb {
   width: var(--slider-thumb-size);
   height: var(--slider-thumb-size);
-  background: var(--text-light);
-  border: none;
+  background: white;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.slider::-moz-range-thumb:hover {
-  transform: scale(1.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Theme Toggle */
@@ -157,26 +143,24 @@ main {
   right: 20px;
   font-size: 1.5em;
   cursor: pointer;
+  user-select: none;
   transition: transform 0.3s ease-in-out;
-  user-select: none; /* Prevent selection */
-  pointer-events: auto; /* Enable clicking */
 }
 
 .theme-toggle:hover {
-  transform: rotate(20deg);
+  transform: rotate(15deg);
 }
 
-/* Footer */
+/* Footer Styling */
 footer {
   text-align: center;
   font-size: 0.9em;
-  color: var(--text-light);
+  color: white;
   margin: 20px 0;
-  user-select: none; /* Disable selection */
 }
 
 footer a {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   text-decoration: none;
 }
 
@@ -184,33 +168,25 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* Media Queries for Responsiveness */
+/* Media Queries */
 @media (max-width: 768px) {
-  .logo {
-    font-size: 2em;
+  .slider::-webkit-slider-thumb {
+    width: 25px;
+    height: 25px;
   }
 
   .tooltip {
     font-size: 0.8em;
   }
-
-  .slider::-webkit-slider-thumb {
-    width: 25px;
-    height: 25px;
-  }
 }
 
 @media (max-width: 480px) {
-  .logo {
-    font-size: 1.8em;
+  .slider::-webkit-slider-thumb {
+    width: 30px;
+    height: 30px;
   }
 
   .tooltip {
     font-size: 0.7em;
-  }
-
-  .slider::-webkit-slider-thumb {
-    width: 30px;
-    height: 30px;
   }
 }
