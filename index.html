@@ -27,7 +27,7 @@
 
 <body>
   <!-- Dark mode toggle icon (top-right) -->
-  <div class="dark-mode-toggle" id="darkModeToggle" role="button" aria-label="Toggle dark mode">
+  <div class="dark-mode-toggle" id="darkModeToggle" role="button" aria-label="Toggle dark mode" tabindex="0">
     🌙
   </div>
 
@@ -39,15 +39,31 @@
     <div class="search-container">
       <!-- Input + Mic icon together -->
       <div class="input-wrapper">
-        <input type="text" id="inputbox" />
-        <div class="mic-icon" id="micIcon" role="button" aria-label="Start voice recognition">
+        <input type="text" id="inputbox" placeholder="Search here..." />
+        <div class="mic-icon" id="micIcon" role="button" aria-label="Start voice recognition" tabindex="0">
           🎤
         </div>
       </div>
 
-      <!-- Slider with tooltip -->
+      <!-- Enhanced Slider with labels and tooltip -->
       <div class="slider-container">
-        <input type="range" min="0" max="2" step="1" value="0" class="slider" id="searchSlider" />
+        <div class="slider-labels">
+          <label for="searchSlider" id="sliderLabel" class="visually-hidden">Select Search Engine</label>
+          <div class="label" data-value="0" tabindex="0">
+            <img src="chatgpt-icon.png" alt="ChatGPT" />
+            <span>ChatGPT</span>
+          </div>
+          <div class="label" data-value="1" tabindex="0">
+            <img src="perplexity-icon.png" alt="Perplexity AI" />
+            <span>Perplexity AI</span>
+          </div>
+          <div class="label" data-value="2" tabindex="0">
+            <img src="google-icon.png" alt="Google" />
+            <span>Google</span>
+          </div>
+        </div>
+        <input type="range" min="0" max="2" step="1" value="0" class="slider" id="searchSlider"
+          aria-labelledby="sliderLabel" />
         <div class="tooltip" id="tooltip">ChatGPT</div>
       </div>
 
