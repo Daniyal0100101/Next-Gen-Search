@@ -15,9 +15,9 @@ const micIcon = document.getElementById("micIcon");
 
 // List of search engines
 const engines = [
-  { name: "ChatGPT", url: "https://chat.openai.com/search?q=" },
-  { name: "Perplexity AI", url: "https://www.perplexity.ai/search?q=" },
-  { name: "Google", url: "https://www.google.com/search?q=" },
+    { name: "ChatGPT", url: "https://chat.openai.com/search?q=" },
+    { name: "Perplexity AI", url: "https://www.perplexity.ai/search?q=" },
+    { name: "Google", url: "https://www.google.com/search?q=" },
 ];
 
 // Set the default placeholder once at initialization
@@ -25,25 +25,23 @@ inputBox.placeholder = PLACEHOLDER_DEFAULT;
 
 // Initialize tooltip text based on slider value
 function updateTooltip() {
-  tooltip.textContent = engines[slider.value].name;
+    tooltip.textContent = engines[slider.value].name;
 }
 updateTooltip();
 
 // Update tooltip text whenever the slider moves
 slider.addEventListener("input", () => {
-  updateTooltip();
+    updateTooltip();
 });
 
 // Perform search based on slider selection
 function performSearch() {
-  const query = inputBox.value.trim();
-  if (query) {
-    const engineIndex = parseInt(slider.value, 10);
-    window.open(
-      `${engines[engineIndex].url}${encodeURIComponent(query)}`,
-      "_blank"
-    );
-  }
+    const query = inputBox.value.trim();
+    if (query) {
+        const engineIndex = parseInt(slider.value, 10);
+        const searchURL = `${engines[engineIndex].url}${encodeURIComponent(query)}`;
+        window.open(searchURL, "_blank");
+    }
 }
 
 // Search button click
@@ -51,23 +49,33 @@ searchBtn.addEventListener("click", performSearch);
 
 // Press Enter to search
 inputBox.addEventListener("keyup", (event) => {
-  if (event.key === "Enter") {
-    performSearch();
-  }
+    if (event.key === "Enter") {
+        performSearch();
+    }
 });
 
 // Dark mode toggle
 darkModeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  const isDarkMode = document.body.classList.contains("dark");
-  localStorage.setItem("darkMode", isDarkMode);
-  darkModeToggle.textContent = isDarkMode ? "☀️" : "🌙";
+    document.body.classList.toggle("dark");
+
+    const isDarkMode = document.body.classList.contains("dark");
+    localStorage.setItem("darkMode", isDarkMode);
+
+    // Toggle classes for the icon: moon <-> sun
+    if (isDarkMode) {
+        darkModeToggle.classList.remove("moon");
+        darkModeToggle.classList.add("sun");
+    } else {
+        darkModeToggle.classList.remove("sun");
+        darkModeToggle.classList.add("moon");
+    }
 });
 
 // Load stored dark mode preference
 if (localStorage.getItem("darkMode") === "true") {
-  document.body.classList.add("dark");
-  darkModeToggle.textContent = "☀️";
+    document.body.classList.add("dark");
+    darkModeToggle.classList.remove("moon");
+    darkModeToggle.classList.add("sun");
 }
 
 // Speech-to-text (mic icon)
@@ -75,54 +83,51 @@ let recognition;
 let isListening = false;
 
 if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
-  const SpeechRecognition =
-    window.SpeechRecognition || window.webkitSpeechRecognition;
-  recognition = new SpeechRecognition();
-  recognition.continuous = true;
-  recognition.interimResults = true;
-  recognition.lang = "en-US";
+    const SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = "en-US";
 
-  recognition.onresult = (event) => {
-    let transcript = "";
-    for (let i = event.resultIndex; i < event.results.length; i++) {
-      transcript += event.results[i][0].transcript;
-    }
-    inputBox.value = transcript;
-  };
+    recognition.onresult = (event) => {
+        let transcript = "";
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+            transcript += event.results[i][0].transcript;
+        }
+        inputBox.value = transcript;
+    };
 
-  recognition.onerror = (event) => {
-    console.error(ERROR_MESSAGE, event.error);
-    // If there's an error (e.g., can't detect speech), stop recognition
-    recognition.stop();
-    micIcon.classList.remove("active");
-    inputBox.placeholder = PLACEHOLDER_DEFAULT;
-    isListening = false;
-  };
+    recognition.onerror = (event) => {
+        console.error(ERROR_MESSAGE, event.error);
+        recognition.stop();
+        micIcon.classList.remove("active");
+        inputBox.placeholder = PLACEHOLDER_DEFAULT;
+        isListening = false;
+    };
 
-  recognition.onend = () => {
-    console.log("Speech recognition ended automatically.");
-    micIcon.classList.remove("active");
-    inputBox.placeholder = PLACEHOLDER_DEFAULT;  // "Type your query here..." 
-    isListening = false;
-  };
-  
-  micIcon.addEventListener("click", () => {
-    if (!isListening) {
-      // Start listening
-      recognition.start();
-      micIcon.classList.add("active");
-      inputBox.placeholder = PLACEHOLDER_LISTENING;
-    } else {
-      // Stop listening
-      recognition.stop();
-      micIcon.classList.remove("active");
-      inputBox.placeholder = PLACEHOLDER_DEFAULT;
-    }
-    isListening = !isListening;
-  });
+    recognition.onend = () => {
+        console.log("Speech recognition ended automatically.");
+        micIcon.classList.remove("active");
+        inputBox.placeholder = PLACEHOLDER_DEFAULT;
+        isListening = false;
+    };
+
+    micIcon.addEventListener("click", () => {
+        if (!isListening) {
+            recognition.start();
+            micIcon.classList.add("active");
+            inputBox.placeholder = PLACEHOLDER_LISTENING;
+        } else {
+            recognition.stop();
+            micIcon.classList.remove("active");
+            inputBox.placeholder = PLACEHOLDER_DEFAULT;
+        }
+        isListening = !isListening;
+    });
 } else {
-  // Browser does not support speech recognition
-  micIcon.addEventListener("click", () => {
-    alert("Your browser does not support speech recognition.");
-  });
+    // Browser does not support speech recognition
+    micIcon.addEventListener("click", () => {
+        alert("Your browser does not support speech recognition.");
+    });
 }
