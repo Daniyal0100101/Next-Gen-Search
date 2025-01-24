@@ -18,45 +18,39 @@
 
   <title>Next-Gen Search</title>
 
-  <!-- Optional Google Font (Poppins) -->
+  <!-- Google Font (Optional) -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
 
-  <!-- Link to External CSS -->
+  <!-- External CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- Dark mode toggle icon (top-right) -->
-  <div class="dark-mode-toggle" id="darkModeToggle" role="button" aria-label="Toggle dark mode">
-    🌙
+  <!-- Dark mode toggle icon -->
+  <div class="dark-mode-toggle moon" id="darkModeToggle" role="button" aria-label="Toggle dark mode">
+    <!-- No text; icon is entirely styled via CSS -->
   </div>
 
   <main>
-    <!-- Page Title / Logo -->
     <div class="logo">Next-Gen Search</div>
 
-    <!-- Main Search Section -->
     <div class="search-container">
-      <!-- Input + Mic icon together -->
       <div class="input-wrapper">
-        <input type="text" id="inputbox" />
+        <input type="text" id="inputbox" placeholder="Search here..." />
         <div class="mic-icon" id="micIcon" role="button" aria-label="Start voice recognition">
-          🎤
+          <!-- No text; icon is entirely styled via CSS -->
         </div>
       </div>
 
-      <!-- Slider with tooltip -->
       <div class="slider-container">
         <input type="range" min="0" max="2" step="1" value="0" class="slider" id="searchSlider" />
         <div class="tooltip" id="tooltip">ChatGPT</div>
       </div>
 
-      <!-- Search Button -->
       <button id="searchBtn">Search</button>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     Powered by
     <a href="https://chat.openai.com" target="_blank">ChatGPT</a>,
@@ -65,7 +59,7 @@
     <a href="https://www.google.com" target="_blank">Google</a>
   </footer>
 
-  <!-- Link to External JavaScript -->
+  <!-- External JavaScript -->
   <script src="script.js"></script>
 </body>
 
