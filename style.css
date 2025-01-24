@@ -159,7 +159,6 @@ main {
     width: 100%;
     max-width: 500px;
     margin-bottom: 20px;
-    user-select: none;
     position: relative;
 }
 
@@ -174,6 +173,7 @@ main {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0.2s, opacity 0.2s;
+    user-select: none;
 }
 
 .slider-container:hover .tooltip {
