@@ -53,6 +53,7 @@ main {
 }
 
 @keyframes glow {
+
     0%,
     100% {
         text-shadow: 0 0 5px rgba(72, 157, 241, 0.5),
@@ -239,13 +240,6 @@ main {
 
 .dark-mode-toggle:hover {
     transform: rotate(20deg);
-}
-
-/* Remove blue pop-up or focus ring for selected elements */
-#searchBtn, .mic-icon, .slider, .dark-mode-toggle, #inputbox {
-    -webkit-tap-highlight-color: transparent; /* Disable touch highlight */
-    outline: none; /* Remove focus outline */
-    user-select: none;
 }
 
 /* Footer */
