@@ -306,13 +306,25 @@ footer a:hover {
     }
 }
 
-/* Remove focus outline on touch devices */
-button, input, select, textarea {
-    outline: none; /* Disable the blue outline */
+/* Fix for blue selector/pop-up issue on mobile devices */
+button, a, input, textarea, select {
+    outline: none; /* Removes the blue outline */
+    -webkit-tap-highlight-color: transparent; /* Disables the blue highlight on touch */
+    touch-action: manipulation; /* Prevents accidental zoom or scroll gestures */
 }
 
-/* Disable unwanted selection behavior */
-button:focus, input:focus, textarea:focus {
+button:focus, a:focus, input:focus, textarea:focus {
     outline: none;
-    box-shadow: none; /* Remove any shadow effect on focus */
+    box-shadow: none; /* Disables focus ring shadows */
+}
+
+@media (hover: none) {
+    button:hover, a:hover, .mic-icon:hover, .dark-mode-toggle:hover {
+        background-color: inherit; /* Keeps the original background */
+        box-shadow: none; /* No shadow effects */
+    }
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 2px solid #4caf50; /* Optional: Only visible for keyboard users */
 }
