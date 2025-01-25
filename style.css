@@ -305,3 +305,14 @@ footer a:hover {
         font-size: 0.7em;
     }
 }
+
+/* Remove focus outline on touch devices */
+button, input, select, textarea {
+    outline: none; /* Disable the blue outline */
+}
+
+/* Disable unwanted selection behavior */
+button:focus, input:focus, textarea:focus {
+    outline: none;
+    box-shadow: none; /* Remove any shadow effect on focus */
+}
