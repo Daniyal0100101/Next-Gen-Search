@@ -245,6 +245,7 @@ main {
 #searchBtn, .mic-icon, .slider, .dark-mode-toggle, #inputbox {
     -webkit-tap-highlight-color: transparent; /* Disable touch highlight */
     outline: none; /* Remove focus outline */
+    user-select: none;
 }
 
 /* Footer */
