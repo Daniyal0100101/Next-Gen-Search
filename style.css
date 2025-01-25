@@ -48,18 +48,16 @@ main {
     color: transparent;
     text-align: center;
     animation: glow 2s infinite;
-    user-select: none;
+    user-select: none; /* Prevent selection */
+    pointer-events: none; /* Prevent interaction */
     margin-bottom: 25px;
 }
 
 @keyframes glow {
-
-    0%,
-    100% {
+    0%, 100% {
         text-shadow: 0 0 5px rgba(72, 157, 241, 0.5),
             0 0 10px rgba(76, 175, 80, 0.7);
     }
-
     50% {
         text-shadow: 0 0 15px rgba(72, 157, 241, 0.8),
             0 0 20px rgba(76, 175, 80, 1);
@@ -99,6 +97,7 @@ main {
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2),
         0 0 10px rgba(255, 255, 255, 0.2);
     transition: background 0.3s, box-shadow 0.3s;
+    user-select: none; /* Prevent copying */
 }
 
 #inputbox:focus {
@@ -123,7 +122,8 @@ main {
     color: white;
     font-size: 18px;
     z-index: 10;
-    user-select: none;
+    user-select: none; /* Prevent selection */
+    pointer-events: none; /* Prevent interaction */
 }
 
 .mic-icon:hover {
@@ -141,11 +141,9 @@ main {
     0% {
         box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
     }
-
     70% {
         box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0);
     }
-
     100% {
         box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
     }
@@ -160,6 +158,8 @@ main {
     max-width: 500px;
     margin-bottom: 20px;
     position: relative;
+    user-select: none; /* Prevent copying */
+    pointer-events: none; /* Prevent interaction */
 }
 
 .tooltip {
@@ -173,6 +173,8 @@ main {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0.2s, opacity 0.2s;
+    user-select: none; /* Prevent copying */
+    pointer-events: none; /* Prevent interaction */
 }
 
 .slider-container:hover .tooltip {
@@ -221,11 +223,8 @@ main {
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-#searchBtn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
+    user-select: none; /* Prevent copying */
+    pointer-events: none; /* Prevent interaction */
 }
 
 .dark-mode-toggle {
@@ -235,28 +234,23 @@ main {
     font-size: 1.5em;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
-    user-select: none;
+    user-select: none; /* Prevent selection */
+    pointer-events: none; /* Prevent interaction */
 }
 
-.dark-mode-toggle:hover {
-    transform: rotate(20deg);
-}
-
-/* Footer */
 footer {
     text-align: center;
     font-size: 0.9em;
     color: #94a3b8;
     margin: 20px 0;
+    user-select: none; /* Prevent selection */
 }
 
 footer a {
     color: #60a5fa;
     text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
+    pointer-events: none; /* Prevent interaction */
+    user-select: none; /* Prevent copying */
 }
 
 /* Media queries */
