@@ -47,7 +47,7 @@ main {
     color: transparent; 
     text-align: center; 
     animation: glow 2s infinite; 
-    user-select: none; /* Already non-selectable */
+    user-select: none; /* non-selectable */
     margin-bottom: 25px; 
 }
 
@@ -119,7 +119,7 @@ main {
     color: white; 
     font-size: 18px; 
     z-index: 10; 
-    user-select: none; 
+    user-select: none;
 }
 
 .mic-icon:hover { 
@@ -285,15 +285,18 @@ footer a:hover {
         width: 30px;
         height: 30px;
         font-size: 16px;
+        user-select: none;
     }
 
     #searchBtn {
         font-size: 14px;
         padding: 8px 20px;
+        user-select: none;
     }
 
     .tooltip {
         font-size: 0.7em;
+        user-select: none; 
     }
 }
 
