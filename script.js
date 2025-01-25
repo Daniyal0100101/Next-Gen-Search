@@ -4,6 +4,7 @@
 const PLACEHOLDER_DEFAULT = "Search here...";
 const PLACEHOLDER_LISTENING = "Listening...";
 const ERROR_MESSAGE = "Speech recognition error:";
+const SEARCH_HISTORY_KEY = "userSearchHistory"; // Key for localStorage
 
 // DOM elements
 const slider = document.getElementById("searchSlider");
@@ -20,8 +21,26 @@ const engines = [
     { name: "Google", url: "https://www.google.com/search?q=" },
 ];
 
-// Set the default placeholder once at initialization
-inputBox.placeholder = PLACEHOLDER_DEFAULT;
+// Initialize search history from localStorage
+let searchHistory = JSON.parse(localStorage.getItem(SEARCH_HISTORY_KEY)) || [];
+
+// Set the initial placeholder with a suggestion from history or default
+function setPlaceholder() {
+    if (searchHistory.length > 0) {
+        inputBox.placeholder = `Try: "${searchHistory[searchHistory.length - 1]}"`;
+    } else {
+        inputBox.placeholder = PLACEHOLDER_DEFAULT;
+    }
+}
+setPlaceholder();
+
+// Save a search query to localStorage
+function saveSearchQuery(query) {
+    if (!query || searchHistory.includes(query)) return; // Avoid duplicates
+    searchHistory.push(query);
+    if (searchHistory.length > 5) searchHistory.shift(); // Limit history to the last 5 searches
+    localStorage.setItem(SEARCH_HISTORY_KEY, JSON.stringify(searchHistory));
+}
 
 // Initialize tooltip text based on slider value
 function updateTooltip() {
@@ -43,6 +62,9 @@ function performSearch() {
             `${engines[engineIndex].url}${encodeURIComponent(query)}`,
             "_blank"
         );
+        saveSearchQuery(query); // Save query to history
+        inputBox.value = ""; // Clear the input box
+        setPlaceholder(); // Update placeholder with the last search
     }
 }
 
@@ -102,7 +124,7 @@ if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
     recognition.onend = () => {
         console.log("Speech recognition ended automatically.");
         micIcon.classList.remove("active");
-        inputBox.placeholder = PLACEHOLDER_DEFAULT;  // "Type your query here..." 
+        inputBox.placeholder = PLACEHOLDER_DEFAULT;
         isListening = false;
     };
 
