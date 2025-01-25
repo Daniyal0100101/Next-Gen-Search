@@ -181,6 +181,8 @@ main {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0.2s, opacity 0.2s;
+    pointer-events: none;
+    z-index: 10;
 }
 
 .slider-container:hover .tooltip {
@@ -192,28 +194,70 @@ main {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
-    height: 10px;
+    height: 12px;
     background: linear-gradient(90deg, #2563eb, #4caf50, #e11d48);
     border-radius: 10px;
     outline: none;
-    transition: opacity 0.2s, background 0.3s;
+    transition: opacity 0.2s, background 0.3s, box-shadow 0.3s;
     cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     background: white;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 0.3s;
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 0 4px rgba(76, 175, 80, 0.2);
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
+    border: 2px solid #4caf50;
 }
 
 .slider::-webkit-slider-thumb:hover {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.4),
+        0 0 0 6px rgba(76, 175, 80, 0.3);
+    transform: scale(1.1);
+}
+
+.slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 0 4px rgba(76, 175, 80, 0.2);
+    border: 2px solid #4caf50;
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.4),
+        0 0 0 6px rgba(76, 175, 80, 0.3);
+    transform: scale(1.1);
+}
+
+.slider::-moz-range-track {
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(90deg, #2563eb, #4caf50, #e11d48);
+    border-radius: 10px;
 }
 
 #searchBtn {
