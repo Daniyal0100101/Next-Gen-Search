@@ -1,94 +1,134 @@
 # Next-Gen Search
 
-Next-Gen Search is a sleek and modern web-based interface designed to streamline your search experience. It enables you to quickly toggle between different search engines, including ChatGPT, Perplexity AI, and Google, through an intuitive slider. With its responsive design and customizable features, this project redefines the way you search online.
+<div align="center">
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
+A modern, intuitive multi-engine search interface that seamlessly integrates ChatGPT, Perplexity AI, and Google search capabilities.
+
+[Live Demo](https://daniyal0100101.github.io/Next-Gen-Search/) | [Report Bug](https://github.com/daniyal0100101/Next-Gen-Search/issues) | [Request Feature](https://github.com/daniyal0100101/Next-Gen-Search/issues)
+
+</div>
 
 ---
 
-## Features
+## 🌟 Features
 
-- **Interactive Slider**: Easily switch between ChatGPT, Perplexity AI, and Google as your search engine.
-- **Dark Mode**: Toggle between light and dark themes with a single click.
-- **Responsive Design**: Optimized for devices of all sizes, from desktops to mobile screens.
-- **User-Friendly Interface**: Simple and minimalistic design for a seamless user experience.
-- **Real-Time Search**: Launch your queries directly in the chosen search engine with instant results.
+- **🔄 Intelligent Search Engine Switching**: Seamlessly switch between ChatGPT, Perplexity AI, and Google using an intuitive slider
+- **🎯 Smart Predictions**: AI-powered prediction of your preferred search engine based on usage patterns
+- **🎤 Voice Search Integration**: Built-in voice recognition for hands-free searching
+- **🌓 Dynamic Theme Switching**: Elegant dark/light mode with system preference detection
+- **📱 Responsive Design**: Optimized for all devices from mobile to desktop
+- **🚀 Performance Optimized**: Minimal load times with optimized assets and animations
+- **♿ Accessibility First**: WCAG compliant with full keyboard navigation and screen reader support
+- **🔒 Privacy Focused**: No tracking or data collection
+
+## 🛠️ Technology Stack
+
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **APIs**: Web Speech API for voice recognition
+- **Design**: CSS Grid, Flexbox, Custom Properties
+- **Performance**: RequestAnimationFrame, will-change optimizations
+- **Storage**: LocalStorage for user preferences
+
+## 🚀 Quick Start
+
+1. **Visit the Website**
+   ```bash
+   https://daniyal0100101.github.io/Next-Gen-Search/
+   ```
+
+2. **Local Development**
+   ```bash
+   git clone https://github.com/daniyal0100101/Next-Gen-Search.git
+   cd Next-Gen-Search
+   # Open index.html in your browser
+   ```
+
+## 💡 Usage Guide
+
+### Basic Search
+1. Enter your search query in the input box
+2. Select your preferred search engine using the slider:
+   - Left: ChatGPT
+   - Middle: Perplexity AI
+   - Right: Google
+3. Click "Search" or press Enter
+
+### Voice Search
+1. Click the microphone icon 🎤
+2. Speak your search query
+3. The search will automatically populate
+4. Click "Search" to execute
+
+### Theme Switching
+- Click the moon/sun icon in the top-right corner
+- Automatically respects system dark mode preferences
+
+## 🔧 Advanced Features
+
+### Search Engine Prediction
+The app learns from your search patterns and predicts your preferred search engine based on:
+- Time of day
+- Previous selections
+- Search query type
+
+### Keyboard Shortcuts
+- `Enter`: Execute search
+- `Tab`: Navigate between elements
+- `Space`: Toggle voice recognition
+- `Esc`: Clear input
+
+## 📱 Browser Support
+
+- Chrome/Edge (latest 2 versions)
+- Firefox (latest 2 versions)
+- Safari (latest 2 versions)
+- Opera (latest version)
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+## 📝 Planned Features
+
+- [ ] Custom search engine configuration
+- [ ] Search history with local storage
+- [ ] Keyboard shortcuts customization
+- [ ] Advanced search filters
+- [ ] Multi-language support
+- [ ] Search suggestions
+- [ ] Export/Import settings
+- [ ] PWA support
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [OpenAI](https://openai.com) - ChatGPT integration
+- [Perplexity AI](https://www.perplexity.ai) - AI search capabilities
+- [Google](https://www.google.com) - Search engine integration
+- [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) - Voice recognition
+
+## 📞 Contact
+
+Daniyal Asif - [@daniyalasif](https://twitter.com/daniyalasif)
+
+Project Link: [https://github.com/daniyal0100101/Next-Gen-Search](https://github.com/daniyal0100101/Next-Gen-Search)
 
 ---
 
-## Technologies Used
-
-- **HTML**: For structuring the webpage.
-- **CSS**: For styling and creating an elegant, responsive design.
-- **JavaScript**: For interactivity, including slider functionality, dark mode toggle, and dynamic search engine switching.
-
----
-
-## How to Use
-
-1. **Open the Webpage**:
-   Load the `Next-Gen Search` webpage in any modern browser.
-
-2. **Enter Your Query**:
-   Type your search term into the input box.
-
-3. **Choose Your Search Engine**:
-   - Use the slider to toggle between:
-     - **ChatGPT** (Default)
-     - **Perplexity AI**
-     - **Google**
-   - The tooltip above the slider indicates the currently selected engine.
-
-4. **Search**:
-   - Click the **Search** button or press **Enter** to perform the search.
-   - The query will open in a new tab using the selected search engine.
-
-5. **Dark Mode**:
-   - Use the 🌙 button in the top-right corner to toggle dark mode.
-
----
-
-## Project Structure
-
-- `index.html`: The main HTML file with the structure of the application.
-- Embedded `CSS` for styles and `JavaScript` for interactivity.
-- **Search Engines**:
-  - [ChatGPT](https://chat.openai.com)
-  - [Perplexity AI](https://www.perplexity.ai)
-  - [Google](https://www.google.com)
-
----
-
-## Future Enhancements
-
-- **Custom Search Engines**: Allow users to add and configure their own search engines.
-- **Voice Search**: Enable voice input for hands-free searching.
-- **Advanced Animations**: Add smooth transitions and effects for better UX.
-- **Save Preferences**: Store user settings like dark mode and default search engine.
-
----
-
-## Contributing
-
-Contributions are welcome! Feel free to submit a pull request or open an issue for improvements or new features.
-
----
-## License
-
-This project is licensed under the MIT License. You are free to use, modify, and distribute the code as per the license terms.
-
----
-
-### Copyright Notice
-
-© 2025 Daniyal Asif. All rights reserved.
-
-While the project is open-source under the MIT License, this copyright notice asserts ownership. Unauthorized use outside the terms of the license, including attempts to claim ownership or misattribute the source, is strictly prohibited.
-
----
-
-## Acknowledgements
-
-- [OpenAI](https://openai.com) for inspiring the ChatGPT integration.
-- [Perplexity AI](https://www.perplexity.ai) for innovative AI search.
-- [Google](https://www.google.com) for being the search engine benchmark.
-
----
+<div align="center">
+Made with ❤️ by Daniyal Asif
+</div>
