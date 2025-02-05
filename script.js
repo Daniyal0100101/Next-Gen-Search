@@ -71,7 +71,7 @@ function performSearch() {
             "_blank"
         );
         // Clear the input box after performing the search
-        inputBox.value = "";
+        // inputBox.value = "";  (Optional)
         // Update slider history
         updateSliderHistory(engineIndex);
     }
