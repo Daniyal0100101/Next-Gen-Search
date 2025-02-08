@@ -200,7 +200,7 @@ main {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-/* Combine slider thumb rules for both WebKit and Mozilla */
+/* Combined slider thumb rules for WebKit and Mozilla */
 .slider::-webkit-slider-thumb,
 .slider::-moz-range-thumb {
   width: 24px;
@@ -253,7 +253,7 @@ main {
   font-size: 1.5em;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
-  -webkit-tap-highlight-color: transparent; /* Remove mobile highlight */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .dark-mode-toggle:focus {
@@ -316,6 +316,13 @@ main {
 :focus {
   outline: 2px solid #60a5fa;
   outline-offset: 2px;
+}
+
+/* Added color scheme support */
+@media (prefers-color-scheme: dark) {
+  body:not(.dark) {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+  }
 }
 
 /* ========================================= */
