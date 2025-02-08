@@ -76,11 +76,11 @@ main {
     font-size: 1.5em;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
-    user-select: none; /* Prevent selection */
+    user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    -webkit-tap-highlight-color: transparent; /* Remove mobile highlight */
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* Prevent selection or highlight effect on tap */
