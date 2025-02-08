@@ -1,4 +1,5 @@
 /* Basic reset */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -58,11 +59,13 @@ main {
 }
 
 @keyframes glow {
+
     0%,
     100% {
         text-shadow: 0 0 5px rgba(72, 157, 241, 0.5),
             0 0 10px rgba(76, 175, 80, 0.7);
     }
+
     50% {
         text-shadow: 0 0 15px rgba(72, 157, 241, 0.8),
             0 0 20px rgba(76, 175, 80, 1);
@@ -131,10 +134,6 @@ main {
     user-select: none;
 }
 
-.mic-icon:focus {
-    outline: none;
-}
-
 .mic-icon:hover {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
@@ -150,9 +149,11 @@ main {
     0% {
         box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
     }
+
     70% {
         box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
     }
@@ -290,19 +291,27 @@ main {
     transform: rotate(20deg);
 }
 
+/* Remove focus outline from the dark mode toggle icon */
+.dark-mode-toggle:focus {
+    outline: none;
+}
+
 /* Media queries */
 @media (max-width: 768px) {
     .logo {
         font-size: 2em;
     }
+
     #inputbox {
         font-size: 16px;
         padding: 12px 50px 12px 15px;
     }
+
     #searchBtn {
         font-size: 16px;
         padding: 10px 25px;
     }
+
     .tooltip {
         font-size: 0.8em;
     }
@@ -312,21 +321,25 @@ main {
     .logo {
         font-size: 1.8em;
     }
+
     #inputbox {
         font-size: 14px;
         padding: 10px 50px 10px 12px;
     }
+
     .mic-icon {
         width: 30px;
         height: 30px;
         font-size: 16px;
         user-select: none;
     }
+
     #searchBtn {
         font-size: 14px;
         padding: 8px 20px;
         user-select: none;
     }
+
     .tooltip {
         font-size: 0.7em;
         user-select: none;
@@ -343,7 +356,7 @@ main {
 
 /* Color contrast improvement for accessibility */
 :focus {
-    outline: none;
+    outline: 2px solid #60a5fa;
     outline-offset: 2px;
 }
 
