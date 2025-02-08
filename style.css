@@ -277,19 +277,28 @@ main {
     box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);  
 }  
   
-.dark-mode-toggle {  
-    position: fixed;  
-    top: 20px;  
-    right: 20px;  
-    font-size: 1.5em;  
-    cursor: pointer;  
-    transition: transform 0.3s ease-in-out;  
-    user-select: none;  
-}  
-  
-.dark-mode-toggle:hover {  
-    transform: rotate(20deg);  
-}  
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000; /* Ensure it stays on top */
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    user-select: none;
+}
+
+.dark-mode-toggle:hover {
+    transform: rotate(20deg);
+}
+
+@media (max-width: 480px) {
+    .dark-mode-toggle {
+        top: 10px;
+        right: 10px;
+        font-size: 1.2em;
+    }
+}
   
 /* Media queries */  
 @media (max-width: 768px) {  
