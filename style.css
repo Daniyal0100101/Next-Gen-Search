@@ -132,6 +132,7 @@ main {
     font-size: 18px;
     z-index: 10;
     user-select: none;
+    outline: none;
 }
 
 .mic-icon:hover {
