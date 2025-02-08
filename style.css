@@ -396,3 +396,8 @@ main {
     user-select: text;
     /* Standard */
 }
+
+/* Remove focus outline for mic icon on mobile */
+.mic-icon:focus {
+    outline: none;
+}
