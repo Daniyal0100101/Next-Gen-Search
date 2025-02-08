@@ -28,7 +28,7 @@ body.dark {
     color: #fff;
 }
 
-/* Main content wrapper */
+/* Main content wrapper to push footer down */
 main {
     flex: 1;
     display: flex;
