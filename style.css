@@ -343,7 +343,7 @@ main {
 
 /* Color contrast improvement for accessibility */
 :focus {
-    outline: 2px solid #60a5fa;
+    outline: none;
     outline-offset: 2px;
 }
 
