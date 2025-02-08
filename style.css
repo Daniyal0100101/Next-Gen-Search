@@ -277,7 +277,6 @@ main {
     box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
 }
 
-/* Dark mode toggle button */
 .dark-mode-toggle {
     position: fixed;
     top: 20px;
@@ -285,21 +284,11 @@ main {
     font-size: 1.5em;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
-    user-select: none; /* Prevent selection */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-tap-highlight-color: transparent; /* Remove mobile highlight */
+    user-select: none;
 }
 
-/* Prevent selection or highlight effect on tap */
-.dark-mode-toggle:focus {
-    outline: none !important;
-}
-
-/* Keep the hover effect for desktop */
 .dark-mode-toggle:hover {
-    transform: rotate(20deg) scale(1.1);
+    transform: rotate(20deg);
 }
 
 /* Media queries */
