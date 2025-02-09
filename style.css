@@ -214,7 +214,9 @@ main {
     box-shadow:  
         0 2px 4px rgba(0, 0, 0, 0.3),  
         0 0 0 4px rgba(76, 175, 80, 0.2);  
-    transition: box-shadow 0.3s ease, transform 0.2s ease;  
+    transition:  
+        box-shadow 0.3s ease,  
+        transform 0.2s ease;  
     border: 2px solid #4caf50;  
 }  
 
@@ -235,7 +237,9 @@ main {
         0 2px 4px rgba(0, 0, 0, 0.3),  
         0 0 0 4px rgba(76, 175, 80, 0.2);  
     border: 2px solid #4caf50;  
-    transition: box-shadow 0.3s ease, transform 0.2s ease;  
+    transition:  
+        box-shadow 0.3s ease,  
+        transform 0.2s ease;  
 }  
 
 .slider::-moz-range-thumb:hover {  
@@ -252,7 +256,7 @@ main {
     border-radius: 10px;  
 }  
 
-/* Search Button - retain focus outline (do not remove outline) */
+/* Search Button - preserve focus outline while removing the tap highlight overlay */
 #searchBtn {  
     padding: 12px 30px;  
     font-size: 18px;  
@@ -263,8 +267,8 @@ main {
     cursor: pointer;  
     transition: transform 0.2s, box-shadow 0.2s, background 0.3s;  
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);  
-    -webkit-tap-highlight-color: transparent; /* Remove mobile tap highlight */
-    /* Notice: We intentionally keep any focus outline for accessibility */  
+    -webkit-tap-highlight-color: transparent; /* Removes blue overlay on tap */  
+    /* No "outline: none;" here – the focus outline remains intact per your global :focus rule */  
 }  
 
 #searchBtn:hover {  
@@ -359,8 +363,7 @@ main {
     outline-offset: 2px;  
 }  
 
-/* --- Overrides to Remove the Extra Tap Highlight on Android Chrome for other clickable items --- */
-/* Do not target #searchBtn here so its focus outline remains intact */
+/* --- Overrides to Remove Blue Tap Highlight on Touch for Clickable Elements (except #searchBtn) --- */
 .dark-mode-toggle:focus,
 .dark-mode-toggle:active,
 .mic-icon:focus,
@@ -369,12 +372,24 @@ main {
     outline-offset: 0 !important;
     box-shadow: none !important;
     -webkit-tap-highlight-color: transparent !important;
-}  
+}
+
+/* If you have a search engine changer button (or similar), add its selector here, e.g.: */
+/*
+.search-engine-changer:focus,
+.search-engine-changer:active {
+    outline: none !important;
+    outline-offset: 0 !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+*/
 
 /* ========================================= */  
 /*    ADDITIONAL RULES TO PREVENT COPYING    */  
 /* ========================================= */  
 
+/* Prevent copying (selection) for specified elements */  
 .logo,  
 .mic-icon,  
 #searchBtn,  
@@ -388,6 +403,7 @@ main {
     -webkit-touch-callout: none;  
 }  
 
+/* Ensure the input box remains selectable for user interaction */  
 #inputbox {  
     -webkit-user-select: text;  
     -moz-user-select: text;  
