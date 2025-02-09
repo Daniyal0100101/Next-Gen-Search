@@ -105,17 +105,17 @@ cd Next-Gen-Search
 
 ## 🔐 Licensing & Copyright
 
-**© 2024 Daniyal Asif. All rights reserved.**  
-This software is **NOT open-source** and **cannot be freely copied, modified, or redistributed** without explicit permission from the author.  
+**© 2025 Daniyal Asif. All rights reserved.**  
+This software is licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0)** license.
 
 🚨 **You MAY NOT:**
-- **Commercially use** this project or its code.
-- **Distribute, modify, or resell** any part of this software.
-- **Upload this code to GitHub, GitLab, or other repositories** without permission.
+- **Copy, modify, or distribute this project** without permission.
+- **Use this software for commercial purposes.**
+- **Sell, resell, or sublicense this software.**
+- **Upload or share this code on GitHub, GitLab, or any other repositories.**
 
-🔒 **Legal Action**: Unauthorized copying or redistribution **may result in legal action** under copyright laws.
-
-For licensing inquiries, contact **[Daniyal Asif](https://twitter.com/daniyalasif)**.
+🔒 **Legal Protection**: Unauthorized use may result in legal consequences.  
+For licensing inquiries, contact **[Daniyal Asif](https://www.threads.net/@daniyal_asif_1477)**.
 
 ---
 
