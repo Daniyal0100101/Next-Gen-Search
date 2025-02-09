@@ -46,133 +46,87 @@ A modern, intuitive multi-engine search interface that seamlessly integrates **G
 git clone https://github.com/daniyal0100101/Next-Gen-Search.git
 cd Next-Gen-Search
 # Open index.html in your browser
-
-
----
-
-💡 Usage Guide
-
-🔍 Basic Search
-
-1. Enter your search query.
-
-
-2. Select a search engine using the slider:
-
-Left → Google
-
-Middle → Perplexity AI
-
-Right → ChatGPT
-
-
-
-3. Click "Search" or press Enter.
-
-
-
-🎙️ Voice Search
-
-1. Click the microphone icon 🎤.
-
-
-2. Speak your search query.
-
-
-3. Click "Search" to execute.
-
-
-
-🌙 Theme Switching
-
-Click the Moon/Sun icon in the top-right corner.
-
-The app auto-adapts to system dark/light mode.
-
-
+```
 
 ---
 
-🔧 Advanced Features
+## 💡 Usage Guide
 
-🎯 Smart Search Engine Prediction
+### 🔍 Basic Search
+1. **Enter** your search query.
+2. **Select** a search engine using the **slider**:
+   - **Left** → Google
+   - **Middle** → Perplexity AI
+   - **Right** → ChatGPT
+3. The search button’s background color will update dynamically to match the chosen search engine.
+4. Click "Search" or press Enter.
 
-The app learns from your usage patterns and predicts the most used search engine.
+### 🎙️ Voice Search
+1. **Click the microphone icon 🎤**.
+2. **Speak** your search query.
+3. Click **"Search"** to execute.
 
-Predictions are stored locally for better user experience.
-
-
-⌨ Keyboard Shortcuts
-
-Enter → Execute search
-
-Tab → Navigate elements
-
-Space → Start/Stop voice search
-
-Esc → Clear input
-
-
-
----
-
-📱 Browser Support
-
-✅ Chrome, Edge, Firefox, Safari, Opera (Latest Versions)
-✅ Mobile & Desktop Friendly
-
+### 🌙 Theme Switching
+- **Click the Moon/Sun** icon in the top-right corner.
+- The app **auto-adapts** to system **dark/light mode.**
 
 ---
 
-🚧 Planned Features
+## 🔧 Advanced Features
 
-[ ] Custom search engine settings
+### 🎯 **Smart Search Engine Prediction**
+- The app **learns from your usage patterns** and **predicts** the most used search engine.
+- Predictions are **stored locally** for better user experience.
 
-[ ] Search history (LocalStorage)
-
-[ ] Keyboard shortcuts customization
-
-[ ] Multi-language support
-
-[ ] Advanced search filters
-
-[ ] PWA support (Progressive Web App)
-
-
+### ⌨ **Keyboard Shortcuts**
+- **`Enter`** → Execute search  
+- **`Tab`** → Navigate elements  
+- **`Space`** → Start/Stop voice search  
+- **`Esc`** → Clear input  
 
 ---
 
-🔐 Licensing & Copyright
+## 📱 Browser Support
 
-© 2024 Daniyal Asif. All rights reserved.
-This software is NOT open-source and cannot be freely copied, modified, or redistributed without explicit permission from the author.
-
-🚨 You MAY NOT:
-
-Commercially use this project or its code.
-
-Distribute, modify, or resell any part of this software.
-
-Upload this code to GitHub, GitLab, or other repositories without permission.
-
-
-🔒 Legal Action: Unauthorized copying or redistribution may result in legal action under copyright laws.
-
-For licensing inquiries, contact Daniyal Asif.
-
+✅ Chrome, Edge, Firefox, Safari, Opera (Latest Versions)  
+✅ Mobile & Desktop Friendly  
 
 ---
 
-📞 Contact
+## 🚧 Planned Features
+- [ ] **Custom search engine settings**
+- [ ] **Search history (LocalStorage)**
+- [ ] **Keyboard shortcuts customization**
+- [ ] **Multi-language support**
+- [ ] **Advanced search filters**
+- [ ] **PWA support (Progressive Web App)**
 
-Daniyal Asif - Twitter
+---
 
-📌 Project Link: GitHub Repository
+## 🔐 Licensing & Copyright
 
+**© 2024 Daniyal Asif. All rights reserved.**  
+This software is **NOT open-source** and **cannot be freely copied, modified, or redistributed** without explicit permission from the author.  
+
+🚨 **You MAY NOT:**
+- **Commercially use** this project or its code.
+- **Distribute, modify, or resell** any part of this software.
+- **Upload this code to GitHub, GitLab, or other repositories** without permission.
+
+🔒 **Legal Action**: Unauthorized copying or redistribution **may result in legal action** under copyright laws.
+
+For licensing inquiries, contact **[Daniyal Asif](https://twitter.com/daniyalasif)**.
+
+---
+
+## 📞 Contact
+
+**Daniyal Asif** - [Twitter](https://twitter.com/daniyalasif)  
+
+📌 **Project Link**: [GitHub Repository](https://github.com/daniyal0100101/Next-Gen-Search)
 
 ---
 
 <div align="center">
 Made with ❤️ by Daniyal Asif
 </div>
----
