@@ -13,36 +13,29 @@ const inputBox = document.getElementById("inputbox");
 const darkModeToggle = document.getElementById("darkModeToggle");
 const micIcon = document.getElementById("micIcon");
 
-// NEW: Define SVG icons for light and dark mode
-const sunIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-sun">
-  <circle cx="12" cy="12" r="5"></circle>
-  <line x1="12" y1="1" x2="12" y2="3"></line>
-  <line x1="12" y1="21" x2="12" y2="23"></line>
-  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-  <line x1="1" y1="12" x2="3" y2="12"></line>
-  <line x1="21" y1="12" x2="23" y2="12"></line>
-  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-</svg>`;
-
-const moonIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-moon">
-  <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-</svg>`;
-
-// List of search engines
+// --------------------------------
+// Updated: Reordered list of search engines 
+// and corresponding color codes:
+// Index 0: Google   → bluish (#2563eb)
+// Index 1: Perplexity AI → green (#4caf50)
+// Index 2: ChatGPT  → red (#e11d48)
+// --------------------------------
 const engines = [
-    { name: "ChatGPT", url: "https://chat.openai.com/search?q=" },
-    { name: "Perplexity AI", url: "https://www.perplexity.ai/search?q=" },
     { name: "Google", url: "https://www.google.com/search?q=" },
+    { name: "Perplexity AI", url: "https://www.perplexity.ai/search?q=" },
+    { name: "ChatGPT", url: "https://chat.openai.com/search?q=" },
 ];
+
+const engineColors = ["#2563eb", "#4caf50", "#e11d48"];
 
 // Set the default placeholder once at initialization
 inputBox.placeholder = PLACEHOLDER_DEFAULT;
 
-// Initialize tooltip text based on slider value
+// Initialize tooltip text and update search button color based on slider value
 function updateTooltip() {
     tooltip.textContent = engines[slider.value].name;
+    // Dynamically change the search button background color
+    searchBtn.style.backgroundColor = engineColors[slider.value];
 }
 updateTooltip();
 
@@ -73,7 +66,7 @@ if (predictedValue !== null) {
     updateTooltip();
 }
 
-// Update tooltip text whenever the slider moves
+// Update tooltip text and search button color whenever the slider moves
 slider.addEventListener("input", () => {
     updateTooltip();
 });
@@ -87,8 +80,8 @@ function performSearch() {
             `${engines[engineIndex].url}${encodeURIComponent(query)}`,
             "_blank"
         );
-        // Clear the input box after performing the search
-        // inputBox.value = "";  (Optional)
+        // (Optional) Clear the input box after performing the search:
+        // inputBox.value = "";
         // Update slider history
         updateSliderHistory(engineIndex);
     }
@@ -105,10 +98,27 @@ inputBox.addEventListener("keyup", (event) => {
 });
 
 // ------------------------------
-// UPDATED: Dark mode toggle logic
+// (Remaining code below remains unchanged)
 // ------------------------------
 
-// Load stored dark mode preference and set the initial icon
+// Dark mode toggle icons (SVG definitions should already be defined elsewhere)
+const sunIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-sun">
+  <circle cx="12" cy="12" r="5"></circle>
+  <line x1="12" y1="1" x2="12" y2="3"></line>
+  <line x1="12" y1="21" x2="12" y2="23"></line>
+  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+  <line x1="1" y1="12" x2="3" y2="12"></line>
+  <line x1="21" y1="12" x2="23" y2="12"></line>
+  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>`;
+
+const moonIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-moon">
+  <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+</svg>`;
+
+// Dark mode toggle logic
 if (localStorage.getItem("darkMode") === "true") {
     document.body.classList.add("dark");
     darkModeToggle.innerHTML = sunIconSVG;
@@ -123,7 +133,7 @@ darkModeToggle.addEventListener("click", () => {
     darkModeToggle.innerHTML = isDarkMode ? sunIconSVG : moonIconSVG;
 });
 
-// Speech-to-text (mic icon)
+// Speech-to-text (mic icon) logic
 let recognition;
 let isListening = false;
 
@@ -145,7 +155,6 @@ if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
 
     recognition.onerror = (event) => {
         console.error(ERROR_MESSAGE, event.error);
-        // If there's an error (e.g., can't detect speech), stop recognition
         recognition.stop();
         micIcon.classList.remove("active");
         inputBox.placeholder = PLACEHOLDER_DEFAULT;
@@ -161,12 +170,10 @@ if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
 
     micIcon.addEventListener("click", () => {
         if (!isListening) {
-            // Start listening
             recognition.start();
             micIcon.classList.add("active");
             inputBox.placeholder = PLACEHOLDER_LISTENING;
         } else {
-            // Stop listening
             recognition.stop();
             micIcon.classList.remove("active");
             inputBox.placeholder = PLACEHOLDER_DEFAULT;
@@ -174,7 +181,6 @@ if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
         isListening = !isListening;
     });
 } else {
-    // Browser does not support speech recognition
     micIcon.addEventListener("click", () => {
         alert("Your browser does not support speech recognition.");
     });
