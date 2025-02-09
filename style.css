@@ -214,9 +214,7 @@ main {
     box-shadow:  
         0 2px 4px rgba(0, 0, 0, 0.3),  
         0 0 0 4px rgba(76, 175, 80, 0.2);  
-    transition:  
-        box-shadow 0.3s ease,  
-        transform 0.2s ease;  
+    transition: box-shadow 0.3s ease, transform 0.2s ease;  
     border: 2px solid #4caf50;  
 }  
 
@@ -237,9 +235,7 @@ main {
         0 2px 4px rgba(0, 0, 0, 0.3),  
         0 0 0 4px rgba(76, 175, 80, 0.2);  
     border: 2px solid #4caf50;  
-    transition:  
-        box-shadow 0.3s ease,  
-        transform 0.2s ease;  
+    transition: box-shadow 0.3s ease, transform 0.2s ease;  
 }  
 
 .slider::-moz-range-thumb:hover {  
@@ -256,6 +252,7 @@ main {
     border-radius: 10px;  
 }  
 
+/* Search Button - retain focus outline (do not remove outline) */
 #searchBtn {  
     padding: 12px 30px;  
     font-size: 18px;  
@@ -266,8 +263,8 @@ main {
     cursor: pointer;  
     transition: transform 0.2s, box-shadow 0.2s, background 0.3s;  
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);  
-    -webkit-tap-highlight-color: transparent; /* Prevents blue highlight */  
-    outline: none; /* Removes the focus outline on tap */  
+    -webkit-tap-highlight-color: transparent; /* Remove mobile tap highlight */
+    /* Notice: We intentionally keep any focus outline for accessibility */  
 }  
 
 #searchBtn:hover {  
@@ -362,23 +359,22 @@ main {
     outline-offset: 2px;  
 }  
 
-/* --- Overrides to Remove Blue Outline on Android Chrome --- */
-/* These rules override the global :focus styles for #searchBtn and .dark-mode-toggle */
-#searchBtn:focus,  
-#searchBtn:active,  
-.dark-mode-toggle:focus,  
-.dark-mode-toggle:active {  
-    outline: none !important;  
-    outline-offset: 0 !important;  
-    box-shadow: none !important;  
-    -webkit-tap-highlight-color: transparent !important;  
+/* --- Overrides to Remove the Extra Tap Highlight on Android Chrome for other clickable items --- */
+/* Do not target #searchBtn here so its focus outline remains intact */
+.dark-mode-toggle:focus,
+.dark-mode-toggle:active,
+.mic-icon:focus,
+.mic-icon:active {
+    outline: none !important;
+    outline-offset: 0 !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent !important;
 }  
 
 /* ========================================= */  
 /*    ADDITIONAL RULES TO PREVENT COPYING    */  
 /* ========================================= */  
 
-/* Prevent copying (selection) for specified elements */  
 .logo,  
 .mic-icon,  
 #searchBtn,  
@@ -392,7 +388,6 @@ main {
     -webkit-touch-callout: none;  
 }  
 
-/* Ensure the input box remains selectable for user interaction */  
 #inputbox {  
     -webkit-user-select: text;  
     -moz-user-select: text;  
