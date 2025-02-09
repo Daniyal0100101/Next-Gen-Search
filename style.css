@@ -270,7 +270,9 @@ main {
     cursor: pointer;  
     transition: transform 0.2s, box-shadow 0.2s, background 0.3s;  
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);  
-}  
+    -webkit-tap-highlight-color: transparent; /* Prevents blue highlight */
+    outline: none; /* Removes the focus outline on tap */
+}
   
 #searchBtn:hover {  
     transform: scale(1.05);  
