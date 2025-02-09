@@ -197,6 +197,8 @@ main {
     transition: opacity 0.2s, background 0.3s, box-shadow 0.3s;  
     cursor: pointer;  
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  
+    /* Remove blue tap highlight on touch */  
+    -webkit-tap-highlight-color: transparent;  
 }  
 
 .slider:hover {  
@@ -256,7 +258,7 @@ main {
     border-radius: 10px;  
 }  
 
-/* Search Button - preserve focus outline while removing the tap highlight overlay */
+/* Search Button - preserve focus outline while removing the blue overlay on touch */
 #searchBtn {  
     padding: 12px 30px;  
     font-size: 18px;  
@@ -267,8 +269,8 @@ main {
     cursor: pointer;  
     transition: transform 0.2s, box-shadow 0.2s, background 0.3s;  
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);  
-    -webkit-tap-highlight-color: transparent; /* Removes blue overlay on tap */  
-    /* No "outline: none;" here – the focus outline remains intact per your global :focus rule */  
+    -webkit-tap-highlight-color: transparent; /* Removes blue overlay on touch */  
+    /* No outline removal here so that the focus outline remains */  
 }  
 
 #searchBtn:hover {  
@@ -357,33 +359,30 @@ main {
     }  
 }  
 
-/* Color contrast improvement for accessibility */  
+/* Global focus style for accessibility */  
 :focus {  
     outline: 2px solid #60a5fa;  
     outline-offset: 2px;  
 }  
 
 /* --- Overrides to Remove Blue Tap Highlight on Touch for Clickable Elements (except #searchBtn) --- */
+/* This override removes the blue overlay on touch (or focus/active states) for the theme changer, mic icon, 
+   and for the search engine changer control (slider, slider-container, and tooltip if applicable). */
 .dark-mode-toggle:focus,
 .dark-mode-toggle:active,
 .mic-icon:focus,
-.mic-icon:active {
+.mic-icon:active,
+.slider-container:focus,
+.slider-container:active,
+.slider:focus,
+.slider:active,
+.tooltip:focus,
+.tooltip:active {
     outline: none !important;
     outline-offset: 0 !important;
     box-shadow: none !important;
     -webkit-tap-highlight-color: transparent !important;
 }
-
-/* If you have a search engine changer button (or similar), add its selector here, e.g.: */
-/*
-.search-engine-changer:focus,
-.search-engine-changer:active {
-    outline: none !important;
-    outline-offset: 0 !important;
-    box-shadow: none !important;
-    -webkit-tap-highlight-color: transparent !important;
-}
-*/
 
 /* ========================================= */  
 /*    ADDITIONAL RULES TO PREVENT COPYING    */  
