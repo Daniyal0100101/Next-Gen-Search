@@ -51,9 +51,9 @@ A modern, intuitive multi-engine search interface that seamlessly integrates Cha
 ### Basic Search
 1. Enter your search query in the input box
 2. Select your preferred search engine using the slider:
-   - Left: ChatGPT
+   - Left: Google
    - Middle: Perplexity AI
-   - Right: Google
+   - Right: ChatGPT
 3. Click "Search" or press Enter
 
 ### Voice Search
