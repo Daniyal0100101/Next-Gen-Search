@@ -121,7 +121,7 @@ For licensing inquiries, contact **[Daniyal Asif](https://www.threads.net/@daniy
 
 ## 📞 Contact
 
-**Daniyal Asif** - [Twitter](https://twitter.com/daniyalasif)  
+**Daniyal Asif** - [Instagram](https://www.instagram.com/daniyal_asif_1477?igsh=MW5zam1neGl6N2JxMg==)  
 
 📌 **Project Link**: [GitHub Repository](https://github.com/daniyal0100101/Next-Gen-Search)
 
