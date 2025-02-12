@@ -4,49 +4,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Next-Gen Search | AI-Powered Multi-Engine Search</title>
-
-  <meta name="description" content="Next-Gen Search is an AI-powered multi-engine search tool with ChatGPT, Perplexity AI, and Google integration, featuring dark mode and a responsive design." />
+  <meta name="description"
+    content="Next-Gen Search is an AI-powered multi-engine search tool with ChatGPT, Perplexity AI, and Google integration, featuring dark mode and a responsive design." />
   <meta name="author" content="Daniyal Asif" />
-  <meta name="keywords" content="Next-Gen Search, AI search, ChatGPT search, Perplexity AI, Google search, multi-search engine, dark mode search, voice search, AI-powered search tool" />
+  <meta name="keywords"
+    content="Next-Gen Search, AI search, ChatGPT search, Perplexity AI, Google search, multi-search engine, dark mode search, voice search, AI-powered search tool" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph for Social Media -->
+  <!-- Open Graph / Social Media -->
   <meta property="og:title" content="Next-Gen Search | AI-Powered Multi-Engine Search" />
-  <meta property="og:description" content="An advanced AI-powered search tool integrating ChatGPT, Perplexity AI, and Google with dark mode and voice search." />
+  <meta property="og:description"
+    content="An advanced AI-powered search tool integrating ChatGPT, Perplexity AI, and Google with dark mode and voice search." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://daniyal0100101.github.io/Next-Gen-Search/" />
   <meta property="og:image" content="https://daniyal0100101.github.io/Next-Gen-Search/preview-image.png" />
   <meta property="og:site_name" content="Next-Gen Search" />
 
-  <!-- Twitter Card for better sharing on Twitter -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Next-Gen Search | AI-Powered Multi-Engine Search" />
-  <meta name="twitter:description" content="Experience next-generation AI-powered search with ChatGPT, Perplexity AI, and Google, all in one interface." />
+  <meta name="twitter:description"
+    content="Experience next-generation AI-powered search with ChatGPT, Perplexity AI, and Google, all in one interface." />
   <meta name="twitter:image" content="https://daniyal0100101.github.io/Next-Gen-Search/preview-image.png" />
 
-  <!-- Schema Markup for SEO -->
+  <!-- Schema Markup -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Next-Gen Search",
-    "url": "https://daniyal0100101.github.io/Next-Gen-Search/",
-    "author": {
-      "@type": "Person",
-      "name": "Daniyal Asif"
-    },
-    "description": "Next-Gen Search is an AI-powered search tool integrating ChatGPT, Perplexity AI, and Google with dark mode and voice search.",
-    "image": "https://daniyal0100101.github.io/Next-Gen-Search/preview-image.png"
-  }
-  </script>
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Next-Gen Search",
+        "url": "https://daniyal0100101.github.io/Next-Gen-Search/",
+        "author": {
+          "@type": "Person",
+          "name": "Daniyal Asif"
+        },
+        "description": "Next-Gen Search is an AI-powered search tool integrating ChatGPT, Perplexity AI, and Google with dark mode and voice search.",
+        "image": "https://daniyal0100101.github.io/Next-Gen-Search/preview-image.png"
+      }
+    </script>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5X1C5WRLN2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-5X1C5WRLN2');
   </script>
@@ -62,13 +64,13 @@
 </head>
 
 <body>
-  <!-- Dark Mode Toggle -->
-  <div class="dark-mode-toggle" id="darkModeToggle" role="button" aria-label="Toggle dark mode">
-    <!-- Icon inserted dynamically via JS -->
+  <!-- Interactive Dark Mode Toggle -->
+  <div class="dark-mode-toggle" id="darkModeToggle" role="switch" aria-label="Toggle dark mode">
+    <div class="toggle-icon"></div>
   </div>
 
   <main>
-    <!-- Logo & Title -->
+    <!-- Logo / Page Title -->
     <div class="logo" aria-label="Next-Gen Search">Next-Gen Search</div>
 
     <!-- Search Section -->
@@ -89,12 +91,16 @@
 
       <!-- Search Engine Selector -->
       <div class="slider-container">
-        <input type="range" min="0" max="2" step="1" value="0" class="slider" id="searchSlider" aria-label="Search engine selector" />
+        <input type="range" min="0" max="2" step="1" value="0" class="slider" id="searchSlider"
+          aria-label="Search engine selector" />
         <div class="tooltip" id="tooltip">ChatGPT</div>
       </div>
 
       <!-- Search Button -->
       <button id="searchBtn" aria-label="Search">Search</button>
+
+      <!-- Search History Section -->
+      <div id="search-history" class="search-history"></div>
     </div>
   </main>
 

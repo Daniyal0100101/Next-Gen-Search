@@ -29,7 +29,7 @@ body.dark {
   color: #fff;
 }
 
-/* Main content wrapper to push footer down */
+/* Main content wrapper */
 main {
   flex: 1;
   display: flex;
@@ -46,7 +46,8 @@ main {
 .logo {
   font-size: 2.5em;
   font-weight: bold;
-  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(72, 157, 241, 0.5);
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(72, 157, 241, 0.5);
   background: linear-gradient(90deg, #4caf50, #2563eb);
   -webkit-background-clip: text;
   background-clip: text;
@@ -56,25 +57,26 @@ main {
   user-select: none;
   margin-bottom: 25px;
   will-change: text-shadow;
+  font-family: sans-serif;
 }
 
 @keyframes glow {
+
   0%,
   100% {
     text-shadow: 0 0 5px rgba(72, 157, 241, 0.5),
-                 0 0 10px rgba(76, 175, 80, 0.7);
+      0 0 10px rgba(76, 175, 80, 0.7);
   }
+
   50% {
     text-shadow: 0 0 15px rgba(72, 157, 241, 0.8),
-                 0 0 20px rgba(76, 175, 80, 1);
+      0 0 20px rgba(76, 175, 80, 1);
   }
 }
 
 /* -----------------------------
-   Enhanced Search Bar Section
+   Search Bar Section
    ----------------------------- */
-
-/* Modernized Search Container with glassmorphism effect */
 .search-container {
   width: 100%;
   max-width: 600px;
@@ -89,18 +91,17 @@ main {
   padding: 24px;
   transition: transform 0.3s ease;
 }
+
 .search-container:hover {
   transform: translateY(-3px);
 }
 
-/* Input Wrapper remains unchanged */
 .input-wrapper {
   position: relative;
   width: 100%;
   margin-bottom: 20px;
 }
 
-/* Enhanced Input Box with Autofill Fix & Modern Animation */
 #inputbox {
   width: 100%;
   padding: 15px 20px;
@@ -112,16 +113,16 @@ main {
   background: rgba(255, 255, 255, 0.1);
   color: white;
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2),
-              0 0 10px rgba(255, 255, 255, 0.2);
+    0 0 10px rgba(255, 255, 255, 0.2);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   caret-color: white;
 }
+
 #inputbox:focus {
   background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
-/* Override Chrome Autofill / Pasted Text Styling */
 #inputbox:-webkit-autofill,
 #inputbox:-webkit-autofill:hover,
 #inputbox:-webkit-autofill:focus {
@@ -130,17 +131,17 @@ main {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-/* Modern Placeholder styling */
 #inputbox::placeholder {
   color: rgba(255, 255, 255, 0.7);
   transition: opacity 0.3s ease;
 }
+
 #inputbox:focus::placeholder {
   opacity: 0.9;
 }
 
 /* -----------------------------
-   Mic Icon
+   Mic Icon (Voice Icon)
    ----------------------------- */
 .mic-icon {
   position: absolute;
@@ -161,26 +162,52 @@ main {
   z-index: 10;
   user-select: none;
 }
+
 .mic-icon:hover {
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
 }
+
 .mic-icon.active {
-  animation: pulse 1.5s infinite;
-  background: rgba(255, 0, 0, 0.3);
-  color: #ff4d4d;
+  /* Optional: you can add a slight color change when active */
+  /* The animation for the voice bars is defined below */
 }
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0);
-  }
+/* Voice Icon Wave Animation */
+@keyframes voiceWave {
+
+  0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    transform: scaleY(1);
   }
+
+  50% {
+    transform: scaleY(1.5);
+  }
+}
+
+/* Animate each bar of the voice icon when mic-icon is active */
+.mic-icon.active rect:nth-child(1) {
+  animation: voiceWave 1s infinite ease-in-out;
+}
+
+.mic-icon.active rect:nth-child(2) {
+  animation: voiceWave 1s infinite ease-in-out;
+  animation-delay: 0.1s;
+}
+
+.mic-icon.active rect:nth-child(3) {
+  animation: voiceWave 1s infinite ease-in-out;
+  animation-delay: 0.2s;
+}
+
+.mic-icon.active rect:nth-child(4) {
+  animation: voiceWave 1s infinite ease-in-out;
+  animation-delay: 0.1s;
+}
+
+.mic-icon.active rect:nth-child(5) {
+  animation: voiceWave 1s infinite ease-in-out;
 }
 
 /* -----------------------------
@@ -196,6 +223,7 @@ main {
   margin-bottom: 20px;
   position: relative;
 }
+
 .tooltip {
   position: absolute;
   top: -35px;
@@ -210,12 +238,12 @@ main {
   pointer-events: none;
   z-index: 10;
 }
+
 .slider-container:hover .tooltip {
   visibility: visible;
   opacity: 1;
 }
 
-/* Modernized Slider */
 .slider {
   -webkit-appearance: none;
   appearance: none;
@@ -227,12 +255,13 @@ main {
   transition: opacity 0.2s, background 0.3s, box-shadow 0.3s;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  /* Remove blue tap highlight on touch */
   -webkit-tap-highlight-color: transparent;
 }
+
 .slider:hover {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
+
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -242,15 +271,17 @@ main {
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3),
-              0 0 0 4px rgba(76, 175, 80, 0.2);
+    0 0 0 4px rgba(76, 175, 80, 0.2);
   transition: box-shadow 0.3s ease, transform 0.2s ease;
   border: 2px solid #4caf50;
 }
+
 .slider::-webkit-slider-thumb:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4),
-              0 0 0 6px rgba(76, 175, 80, 0.3);
+    0 0 0 6px rgba(76, 175, 80, 0.3);
   transform: scale(1.1);
 }
+
 .slider::-moz-range-thumb {
   width: 24px;
   height: 24px;
@@ -258,15 +289,17 @@ main {
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3),
-              0 0 0 4px rgba(76, 175, 80, 0.2);
+    0 0 0 4px rgba(76, 175, 80, 0.2);
   border: 2px solid #4caf50;
   transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
+
 .slider::-moz-range-thumb:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4),
-              0 0 0 6px rgba(76, 175, 80, 0.3);
+    0 0 0 6px rgba(76, 175, 80, 0.3);
   transform: scale(1.1);
 }
+
 .slider::-moz-range-track {
   width: 100%;
   height: 12px;
@@ -277,53 +310,116 @@ main {
 /* -----------------------------
    Search Button
    ----------------------------- */
-/* The search button preserves its focus outline (for accessibility)
-   while the tap-highlight overlay on touch is removed. */
 #searchBtn {
   padding: 12px 30px;
   font-size: 18px;
   color: white;
-  background-color: #4caf50;
+  background-color: var(--btn-color, #4caf50);
   border: none;
   border-radius: 50px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  -webkit-tap-highlight-color: transparent; /* Removes blue overlay on touch */
-  /* No outline removal here so the global :focus style remains */
+  -webkit-tap-highlight-color: transparent;
 }
+
 #searchBtn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
+  box-shadow: 0 0 15px var(--btn-hover-color, rgba(76, 175, 80, 0.7));
 }
 
 /* -----------------------------
-   Dark Mode Toggle
+   Transparent Minimalist Dark Mode Button
    ----------------------------- */
+/* A simple, transparent button with the original sun/moon icons (supplied via JS)
+   Enhanced with a subtle scale and opacity change on hover */
 .dark-mode-toggle {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 1000; /* Ensure it stays on top */
-  font-size: 1.5em;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-  user-select: none;
-}
-.dark-mode-toggle:hover {
-  transform: rotate(20deg);
+  padding: 8px;
+  font-size: 16px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  border-radius: 4px;
 }
 
-@media (max-width: 480px) {
-  .dark-mode-toggle {
-    top: 10px;
-    right: 10px;
-    font-size: 1.2em;
-  }
+.dark-mode-toggle:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.dark-mode-toggle .toggle-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+body.dark .dark-mode-toggle .toggle-icon {
+  transform: rotate(180deg);
 }
 
 /* -----------------------------
-   Media Queries
+   Search History Styles
+   ----------------------------- */
+.search-history {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.search-history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-history li {
+  position: relative;
+  padding: 8px 35px 8px 8px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s;
+  border-radius: 12px;
+}
+
+.search-history li:last-child {
+  border-bottom: none;
+}
+
+.search-history li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.remove-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: none;
+  color: rgba(255, 255, 255, 0.6);
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.search-history li:hover .remove-icon {
+  display: block;
+}
+
+.remove-icon:hover {
+  transform: translateY(-50%) scale(1.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* -----------------------------
+   Responsive & Accessibility
    ----------------------------- */
 @media (max-width: 768px) {
   .logo {
@@ -374,9 +470,6 @@ main {
   }
 }
 
-/* -----------------------------
-   Performance & Accessibility
-   ----------------------------- */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
@@ -384,16 +477,11 @@ main {
   }
 }
 
-/* Global focus style for accessibility */
 :focus {
   outline: 2px solid #60a5fa;
   outline-offset: 2px;
 }
 
-/* -----------------------------
-   Overrides to Remove Blue Tap Highlight on Touch
-   (for clickable elements except #searchBtn)
-   ----------------------------- */
 .dark-mode-toggle:focus,
 .dark-mode-toggle:active,
 .mic-icon:focus,
@@ -410,9 +498,6 @@ main {
   -webkit-tap-highlight-color: transparent !important;
 }
 
-/* -----------------------------
-   Additional Rules to Prevent Copying
-   ----------------------------- */
 .logo,
 .mic-icon,
 #searchBtn,
@@ -426,7 +511,6 @@ main {
   -webkit-touch-callout: none;
 }
 
-/* Ensure the input box remains selectable */
 #inputbox {
   -webkit-user-select: text;
   -moz-user-select: text;
