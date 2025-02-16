@@ -169,8 +169,7 @@ main {
 }
 
 .mic-icon.active {
-  /* Optional: you can add a slight color change when active */
-  /* The animation for the voice bars is defined below */
+  background: rgba(255, 255, 255, 0.3);
 }
 
 /* Voice Icon Wave Animation */
