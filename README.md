@@ -14,22 +14,22 @@ A modern, intuitive multi-engine search interface that seamlessly integrates **G
 
 ## 🌟 Features
 
-- **🔄 Search Engine Switching**: Easily switch between **Google, Perplexity AI, and ChatGPT** with a **slider.**
-- **🎨 Dynamic Button Colors**: The search button **changes color dynamically** based on the selected search engine:
+- 🔄 **Search Engine Switching**: Easily switch between **Google, Perplexity AI, and ChatGPT** with a **slider.**
+- 🎨 **Dynamic Button Colors**: The search button **changes color dynamically** based on the selected search engine:
   - 🔵 **Google** → Blue (#2563eb)
   - 🟢 **Perplexity AI** → Green (#4caf50)
-  - 🟥 **ChatGPT** → Red (#e11d48)
-- **🎤 Voice Search**: Hands-free searching with **Web Speech API.**
-- **🌍 Search History**: Stores up to **5 recent searches**, allowing easy re-search and removal of past queries.
-- **💡 Smart Search Engine Prediction**: Learns from past searches and suggests the most-used engine automatically.
-- **🌑 Enhanced Dark Mode**: Remembers your theme choice and comes with **animated sun/moon icons**.
-- **🚀 Fast & Optimized**: **Minimal load time**, optimized for smooth performance.
-- **♿ Accessibility First**: **Keyboard navigation** and **screen reader support.**
-- **🔒 Private & Secure**: No tracking, no ads, and no data collection.
+  - 🔴 **ChatGPT** → Red (#e11d48)
+- 🎤 **Voice Search**: Hands-free searching with **Web Speech API.**
+- 🌍 **Search History**: Stores up to **5 recent searches**, allowing easy re-search and removal of past queries.
+- 💡 **Smart Search Engine Prediction**: Learns from past searches and suggests the most-used engine automatically.
+- 🌙 **Enhanced Dark Mode**: Remembers your theme choice and comes with **animated sun/moon icons**.
+- 🚀 **Fast & Optimized**: **Minimal load time**, optimized for smooth performance.
+- ♿ **Accessibility First**: **Keyboard navigation** and **screen reader support.**
+- 🔒 **Private & Secure**: No tracking, no ads, and no data collection.
 
 ---
 
-## 🛠️ Technology Stack
+## 🔧 Technology Stack
 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
 - **APIs**: Web Speech API (Voice Search)
@@ -100,22 +100,22 @@ If you want to modify this project, follow these steps:
 
 ---
 
-## 🌐 Browser Support
+## 🌍 Browser Support
 
 👉 Chrome, Edge, Firefox, Safari, Opera (Latest Versions)  
 👉 Mobile & Desktop Friendly  
 
 ---
 
-## 🚧 Planned Features
+## ✨ Future Possibilities
 - [ ] **Custom search engine settings**
 - [ ] **Multi-language support**
 - [ ] **Advanced search filters**
-- [ ] **PWA support (Progressive Web App)**
+- [ ] **AI-Powered query Enhancer**
 
 ---
 
-## 🔐 Licensing & Copyright
+## 🔒 Licensing & Copyright
 
 **© 2025 Daniyal Asif. All rights reserved.**  
 This software is licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0)** license.
@@ -138,6 +138,4 @@ For licensing inquiries, contact **[Daniyal Asif](https://www.threads.net/@daniy
 
 ---
 
-<div align="center">
 Made with ❤️ by Daniyal Asif
-</div>
