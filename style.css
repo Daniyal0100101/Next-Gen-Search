@@ -181,7 +181,7 @@ main {
   }
 
   50% {
-    transform: scaleY(1.5);
+    transform: scaleY(1.4);
   }
 }
 
@@ -389,12 +389,43 @@ body.dark .dark-mode-toggle .toggle-icon {
   border-radius: 12px;
 }
 
+.search-history li {
+  -webkit-touch-callout: none;
+  /* Disable callout (iOS Safari) */
+  -webkit-user-select: none;
+  /* Disable text select (iOS Safari / Chrome) */
+  -moz-user-select: none;
+  /* Disable text select (Firefox) */
+  -ms-user-select: none;
+  /* Disable text select (IE/Edge) */
+  user-select: none;
+  /* Standard syntax */
+  -webkit-tap-highlight-color: transparent;
+  /* Remove highlight on tap (iOS Safari) */
+}
+
 .search-history li:last-child {
   border-bottom: none;
 }
 
 .search-history li:hover {
   background: rgba(255, 255, 255, 0.1);
+}
+
+.search-history-list {
+  list-style: none;
+  padding: 0;
+}
+
+.search-history-list li {
+  cursor: grab;
+  transition: transform 0.2s ease-in-out;
+}
+
+.search-history-list .dragging {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+  opacity: 0.8;
 }
 
 .remove-icon {

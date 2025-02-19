@@ -108,40 +108,53 @@ function saveSearchHistory(query) {
 
 function updateSearchHistoryDisplay() {
   const historyContainer = document.getElementById("search-history");
-  const history = JSON.parse(localStorage.getItem(SEARCH_HISTORY_KEY)) || [];
-  
+  let history = JSON.parse(localStorage.getItem(SEARCH_HISTORY_KEY)) || [];
+
   if (history.length === 0) {
     historyContainer.innerHTML = "";
     return;
   }
-  
+
   const ul = document.createElement("ul");
+  ul.classList.add("search-history-list"); // Add class for SortableJS
+
   history.forEach((item, index) => {
     const li = document.createElement("li");
     li.setAttribute("data-index", index);
-    
+    li.setAttribute("draggable", true); // Enable drag
+    li.classList.add("draggable-item"); // For styling
+
     const spanText = document.createElement("span");
     spanText.className = "history-text";
     spanText.textContent = item;
     li.appendChild(spanText);
-    
+
     const removeIcon = document.createElement("span");
     removeIcon.className = "remove-icon";
     removeIcon.title = "Remove";
-    // Use a minimalist "X" icon SVG (using currentColor)
     removeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
-                                <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                              </svg>`;
+                              <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                              <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>`;
     li.appendChild(removeIcon);
-    
+
     ul.appendChild(li);
   });
-  
+
   historyContainer.innerHTML = "";
   historyContainer.appendChild(ul);
-  
-  ul.addEventListener("click", function(e) {
+
+  // Enable Drag & Drop with SortableJS
+  new Sortable(ul, {
+    animation: 150, // Smooth animation
+    ghostClass: "dragging",
+    onEnd: function () {
+      saveNewOrder();
+    }
+  });
+
+  // Remove item event listener
+  ul.addEventListener("click", function (e) {
     const li = e.target.closest("li");
     if (!li) return;
     const index = parseInt(li.getAttribute("data-index"), 10);
@@ -157,6 +170,15 @@ function updateSearchHistoryDisplay() {
 }
 
 updateSearchHistoryDisplay();
+
+function saveNewOrder() {
+  const items = document.querySelectorAll(".search-history-list li .history-text");
+  let newHistory = [];
+  items.forEach(item => {
+    newHistory.push(item.textContent);
+  });
+  localStorage.setItem(SEARCH_HISTORY_KEY, JSON.stringify(newHistory));
+}
 
 // --------------------------------
 // Perform Search
