@@ -19,7 +19,7 @@ const micIcon = document.getElementById("micIcon");
 const engines = [
   { name: "Google", url: "https://www.google.com/search?q=" },
   { name: "Perplexity AI", url: "https://www.perplexity.ai/search?q=" },
-  { name: "ChatGPT", url: "https://chat.openai.com/search?q=" }
+  { name: "ChatGPT", url: "https://chatgpt.com/search?q=" }
 ];
 
 const engineColors = ["#2563eb", "#4caf50", "#e11d48"];
@@ -93,7 +93,7 @@ if (predictedValue !== null) {
 // Search History Functionality
 // --------------------------------
 const SEARCH_HISTORY_KEY = "searchHistory";
-const MAX_HISTORY_ITEMS = 5;
+const MAX_HISTORY_ITEMS = 4;
 
 function saveSearchHistory(query) {
   let history = JSON.parse(localStorage.getItem(SEARCH_HISTORY_KEY)) || [];
