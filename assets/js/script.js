@@ -118,8 +118,8 @@ const slider = {
     const predictedValue = slider.predictNextValue();
     if (predictedValue !== null) {
       dom.slider.value = predictedValue;
-      slider.updateTooltip();
     }
+    slider.updateTooltip();
   }
 };
 
