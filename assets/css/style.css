@@ -431,20 +431,20 @@ body.dark .dark-mode-toggle .toggle-icon {
   outline-offset: 2px;
 }
 
-.dark-mode-toggle:focus,
-.dark-mode-toggle:active,
-.mic-icon:focus,
-.mic-icon:active,
-.slider-container:focus,
-.slider-container:active,
-.slider:focus,
-.slider:active,
-.tooltip:focus,
-.tooltip:active {
-  outline: none !important;
-  outline-offset: 0 !important;
-  box-shadow: none !important;
-  -webkit-tap-highlight-color: transparent !important;
+:root {
+  --focus-ring-color: #4caf50;
+  --focus-ring-shadow: rgba(76,175,80,0.35);
+}
+
+.dark-mode-toggle:focus-visible,
+.mic-icon:focus-visible,
+#searchBtn:focus-visible,
+.slider:focus-visible,
+.search-history li:focus-visible,
+.search-history-list li:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px var(--focus-ring-shadow);
 }
 
 .logo,
