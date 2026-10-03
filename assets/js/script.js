@@ -150,6 +150,9 @@ const searchHistory = {
       const li = document.createElement("li");
       li.setAttribute("data-index", index);
       li.setAttribute("draggable", true);
+      li.setAttribute("tabindex", "0");
+      li.setAttribute("role", "button");
+      li.setAttribute("aria-label", `Use search history item: ${item}. Press Delete to remove.`);
       li.classList.add("draggable-item");
 
       const spanText = document.createElement("span");
@@ -177,6 +180,7 @@ const searchHistory = {
     });
 
     ul.addEventListener("click", searchHistory.handleItemClick);
+    ul.addEventListener("keydown", searchHistory.handleItemKeydown);
   },
   handleItemClick: (e) => {
     const li = e.target.closest("li");
@@ -186,6 +190,19 @@ const searchHistory = {
       searchHistory.removeItem(index);
     } else {
       dom.inputBox.value = li.querySelector(".history-text").textContent;
+    }
+  },
+  handleItemKeydown: (e) => {
+    const li = e.target.closest("li");
+    if (!li) return;
+
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      dom.inputBox.value = li.querySelector(".history-text").textContent;
+    } else if (e.key === "Delete" || e.key === "Backspace") {
+      e.preventDefault();
+      const index = parseInt(li.getAttribute("data-index"), 10);
+      searchHistory.removeItem(index);
     }
   },
   removeItem: (index) => {
@@ -229,6 +246,7 @@ const darkMode = {
     const isDarkMode = document.body.classList.contains("dark");
     const toggleIcon = dom.darkModeToggle.querySelector(".toggle-icon");
     toggleIcon.innerHTML = isDarkMode ? config.sunIconSVG : config.moonIconSVG;
+    dom.darkModeToggle.setAttribute("aria-checked", String(isDarkMode));
   },
   toggle: () => {
     document.body.classList.toggle("dark");
